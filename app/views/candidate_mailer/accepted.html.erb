@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+
+    <p><h4>Entrevista Virtual: <%= "#{@candidate.uid}" %></h4></p>
+
+    <p>Hola <%= @candidate.first_name %>,</p>
+
+    <p>Muchas gracias por participar en la fase de entrevista virtual para el puesto de <em><%= @candidate.position_name %></em> en <em><%= @candidate.company_name %></em>.</p>
+
+    <p>Nos complace poder avisarte que has pasado a la próxima fase de entrevistas para el puesto vacante.</p>
+
+    <p>Un miembro del equipo de reclutamiento en <em><%= @candidate.company_name %></em> estará en contacto contigo próximamente para avisarte de los próximos pasos.</p>
+
+    <p>Te deseamos mucha suerte con tu búsqueda de trabajo.</p>
+
+    <p>Saludos,
+    <br /><br />
+    El Equipo en Ampleo</p>
+
+  </body>
+
+</html>

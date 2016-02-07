@@ -1,0 +1,20 @@
+<footer id="footer">
+  <div id="footer-col-left">
+    &copy; Copyright <%= Date.today.year %> Abare Consulting S.A. de C.V.
+  </div>
+  <div id="footer-col-right">
+    <%= link_to t(:home), root_path %>
+    <% if recruiter_signed_in? %>
+      <%= link_to t(:support), recruiter_technical_support_path(@recruiter) %>
+    <% elsif request.fullpath.include?('shared_external') %>
+      <%= link_to t(:support), technical_support_path %>
+    <% elsif @candidate %>
+      <%= link_to t(:support), candidate_technical_support_path(@candidate) %>
+      <%= link_to t(:FAQ_candidate), page_path("FAQ_candidate") %>
+    <% else %>
+      <%= link_to t(:support), technical_support_path %>
+    <% end %>
+      <%= link_to t(:tou), page_path("tou") %>
+      <%= link_to t(:privacy), page_path("privacy") %>
+  </div>
+</footer>

@@ -1,0 +1,17 @@
+<div id="main-content">
+
+<div id="recruiter-login" class="forgot-password">
+
+<h3><%= t :forgot_password %></h3>
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+
+  <div><%= f.label :email %>
+  <%= f.email_field :email, id: "email-input" %></div>
+  <br />
+  <div><%= f.submit t(:send_reset_instructions), class: "button" %></div>
+<% end %>
+
+</div>
+
+</div>

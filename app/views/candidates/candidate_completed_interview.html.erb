@@ -1,0 +1,24 @@
+<div id="main-content">
+  <div id="start-interview-content">
+      <p>
+        Parece que ya has terminado tu entrevista virtual para el puesto de <span class="dynamic-text"><%= @candidate.position_name %></span> en <span class="dynamic-text"><%= @candidate.company_name %></span>.
+      </p>
+
+      <p>
+        Ten en cuenta que sólo puedes completar esta entrevista una vez.
+      </p>
+
+      <p>
+        Recibirás un email de nuestra parte cuando tengamos más información sobre tu aplicación.
+      </p>
+
+      <p>
+        Si crees que estás viendo esta pagina por error, puedes contactarnos <%= link_to 'aquí', candidate_technical_support_path(@candidate) %>.
+      </p>
+
+      <p>
+        Saludos,<br /><br />El Equipo en Ampleo
+      </p>
+
+  </div> <!--Start interview content -->
+</div> <!-- Main Content -->

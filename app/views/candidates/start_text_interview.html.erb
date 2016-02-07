@@ -1,0 +1,41 @@
+<div id="progress">
+        Entrevista Virtual Paso 1 - Entrevista Escrita
+</div>
+
+<div id="main-content">
+  <div id="candidate-text-interview">
+
+    <%= form_tag candidate_add_answers_path(@candidate), method: "post" do %>
+    <% answers = {} %>
+    <% i = 0 %>
+    <% @candidate.campaign.questions.text.each do |question|  %>
+
+     <% i += 1 %>
+      <div class="question">
+
+      <div class="questions-left-col">
+      <%= "#{t(:question).capitalize} #{i}" %>
+      </div>
+
+      <div class="questions-right-col">
+      <%= question.content %><br /><br />
+      <%= text_area_tag "answers[#{question.id}]", (params[:answers][question.id.to_s] if params[:answers]), rows: 6, cols: 60, id: "answer_#{i}"  %>
+      </div>
+
+      </div><!-- question wrapper -->
+      <% end %>
+      <div class="question" id="answer-submit">
+
+      <div class="questions-left-col">
+      </div>
+
+      <div class="questions-right-col">
+        <%= submit_tag "Continuar", confirm: "¿Estás seguro que quieres guardar tus respuestas? Una vez que lo hayas hecho, no podrás cambiarlas.", class: "button" %>
+      </div>
+
+      </div><!-- question wrapper -->
+      <div class="clear">
+      </div>
+      <% end %>
+  </div><!-- candidate-text-interview -->
+</div> <!-- Main Content -->

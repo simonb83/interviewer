@@ -1,0 +1,202 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+
+  date:
+    formats:
+      special: "%Y-%m-%d %H:%M"
+  time:
+    formats:
+      special: "%Y-%m-%d %H:%M"
+
+  #General terms & navigation
+  home: Home
+  edit_account: Edit Account
+  logout: Logout
+  login: Login
+  recruiter_sign_in:  "Recruiter Login"
+  support: Support
+  interviews: Interviews
+  position_name: Position Name
+  date_created: Date Created
+  status: estado
+  new_interview: New Interview
+  messages: messages
+  from: From
+  delete: Delete
+  organization: organization
+  name: name
+  cancel: Cancel
+  update: Update
+  delete_account: Delete Account
+  number_candidates:  No. of Candidates
+  emails_sent: "# Emails Sent"
+  interviews_completed: "# Interviews Completed"
+  deadline: Deadline
+  accepted: accepted
+  appeted_pl: appected
+  rejected: rejected
+  rejected_pl: rejected
+  add_candidates: Add Candidates
+  change_deadline: Change Deadline
+  close_campaign: Close Campaign
+  delete_campaign: Delete Campaign
+  interview_status: Interview Status
+  date_completed: Date Completed
+  candidate_status: Candidate Status
+  action: action
+  save: Save
+  completed: completed
+  pending: pending
+  accept: accept
+  reject: reject
+  see_more: see more
+  interview_ID: Interview ID
+  campaign_ID: Campaign ID
+  candidate_email: Candidate Email
+  candidate_name: Candidate Name
+  edit_candidate_email: Edit Candidate Email
+  share_interview: Share Interview
+  accept_candidate: Accept Candidate
+  reject_candidate: Reject Candidate
+  delete_candidate: Delete Candidate
+  text_interview: Text Interview
+  verbal_interview: Verbal Interview
+  recommended_friends: Recommended Friends
+  category_select: select a category
+  question_select: select a question
+  additional_question:  add another question
+  call_me: Call Me
+  issue: Issue
+  here: here
+  question: question
+  please_select: please select
+  campaigns: campaigns
+  total: total
+  active: active
+  closed: closed
+  messages: messages
+  sender: sender
+
+  new_campaign: new campaign
+  error:  error
+  error_message:  "prohibited this post from being saved:"
+  yes:  Yes
+  no: No
+  next: Next
+  no_campaigns: "You currently have no campaigns"
+  no_messages:  "You currently have no messages"
+  sure: "Are you sure?"
+  create_campaign:  "Create Campaign"
+
+  text_questions: "Text Questions"
+  number_text_questions:  No. of Text Questions
+  number_verbal_questions: No. of Verbal Questions
+  verbal_questions: "Verbal Questions"
+  position_name:  Position name
+
+
+
+  #Create Recruitment Campaign
+  step1:  "Step 1: Choose Your Campaign Options"
+  position_name_helper: This is the name of the position for which you are recruiting.
+  deadline_helper:  "Enter the deadline the candidates will have for completing the interview. After this date, no more responses will be accepted. We recommend setting the deadline at least 5 days in the future."
+  recommend_friends_helper: "Do you wish to let candidates recommend friends for your position?"
+
+  step2:  "Step 2: Choose Your Text Questions"
+  step2_helper: "These questions will form the first part of the interview. Candidates will only be given one attempt at answering these questions.  We recommend including at least 3 written questions, however if you do not wish to include written questions as part of the interview, press the ‘Skip’ button below."
+
+  step3:  "Step 3: Choose Your Verbal Questions"
+  step3_helper: "You must choose at least one verbal question. Candidates will have the opportunity to record their responses to these questions via telephone as part of their virtual interview."
+
+  step4: "Step 4: Review Your Questions"
+  step5: "Step 5: Add Email Addresses"
+  enter_candidates_helper: "Enter the email addresses of the candidates you would like to participate in this interview in the text area below, with each email on a new line, or separated by commas. Note that when you click on the Create Campaign button below, an email will be automatically sent to each of these candidates inviting them to participate in this interview. You can also add candidates to this interview via the interview management page, which you access from your account home."
+  congratulations_on_creation: "Congratulations, you have successfully created your new campaign."
+  where_to_view_1:  "You can view the status and manage this campaign"
+  where_to_view_2: "or, via your account home page."
+
+  #Account, Candidate & Campaign Management
+
+  remove_account: Remove Account
+  remove_account_helper: "Warning! Removing your account will permanently delete it from the system, along with all campaigns you have created and associated candidates & interviews. Are you sure you wish to continue?"
+  yes_delete: "Yes, delete my account"
+  account_created: "Account successfully updated."
+
+  add_more_candidates: Add More Candidates
+  add_more_candidates_helper: "Enter the email addresses of the candidates you would like to participate in this interview in the text area below, with each email on a new line, or separated by commas. Note that when you click on the Submit button below, an email will be automatically sent to each of these candidates inviting them to participate in this interview. You can also add candidates to this interview via the interview management page, which you access from your account home."
+
+  choose_new_deadline: choose your new deadline
+  close_campaign_confirm: "Are you sure you wish to close this campaign?"
+  delete_campaign_confirm: "Are you sure you wish to delete this campaign? This will remove all associated candidate responses."
+  accept_confirm: "Are you sure you wish to accept this candidate?"
+  reject_confirm: "Are you sure you wish to reject this candidate?"
+
+  edit_candidate_email_helper: "Correct the candidate email information and then click on save."
+  updated_email: Candidate email successfully updated.
+
+  share_with_colleague: Share Candidate Interview with a Colleague
+  share_candidate_helper_1: "Enter the email address of the person with whom you would like to share this interview:"
+  share_candidate_helper_2: "and / or, choose an existing recruiter from your organization below:"
+  select: select
+  share_interview_submit: Share Interview
+  no_recipients_error: "You did not enter any recipients."
+  candidate_not_completed_interview: "Candidate has not yet completed interview."
+
+  no_candidates: "You do not currently have any candidates for this campaign. Please click on Add Candidates button."
+  listen: Listen
+
+  #Support
+  issue_email_helper: "Please confirm your email address."
+  issue_name_helper: "Please enter your full name."
+  related_interview_helper: "If the issue relates to a specific interview, please enter the Interview ID."
+  cand_issue_interview_id_helper: "You can find this in the email you originally received inviting you to the interview."
+  issue_content_helper: "Please describe the issue or problem which you are facing in as much detail as possible."
+  cand_issue_section_helper: "Are you experiencing difficulties with the text-based or verbal interview?"
+  issue_type_helper: "Where are you encountering the issue?"
+  related_campaign_helper: "If this issue relates to a specific campaign, please select it from the list."
+  related_campaign: Related Campaign
+  related_interview: Related Interview
+  technical_support: Technical Support
+  issue_id: Issue ID
+  interview_section: Interview Section
+  content: content
+  issue_type: Type of Issue
+
+  creating_modifying_or_deleting: "Creating, Modifying or Deleting a Campaign"
+  managing_candidates: "Managing Candidates"
+  audio_problems: "Audio Problems"
+  sharing_candidates: "Sharing Candidates"
+  managing_own_account: "Managing Own Account"
+  other: Other
+
+  create_issue_confirm: "We will be in touch as soon as possible to help you with your problem"
+
+
+  # Answers Controller
+  answer_all_questions: "Please answer all questions before continuing."
+
+  #CampaignQuestions Controller
+  question_added: Question added
+  question_added: Questions added
+
+  #Campaigns Controller
+  campaign_created: Campaign was successfully created.
+  campaign_removed: Campaign successfully removed.
+  deadline_modified: Deadline successfully modified.
+  campaign_closed: Campaign was successfully closed.
+  campaign_already_closed: Campaign is already closed.
+  enter_candidates_error: "Sorry, your campaign is closed. Please re-open interview by changing the deadline before adding candidates."
+
+  #Candidates Controller
+  candidate_deleted: Candidate successfully deleted.
+
+  not_completed_interview: Candidate has not yet completed their interview.
+  enter_full_name: Please enter your full name
+  privacy_error: "Unfortunately if you do not agree to the privacy policy you will not be able to commence the interview. If you do not wish to continue, please close your browser window."
+  ten_digit_error: "Phone number must be 10 digits in length, including LADA."
+  start_with_1_error: "Phone number cannot start with 1."
+  non_numeric_error: "Phone number cannot contain non-numeric characters."
+  complete_voice_interview_error: "Please ensure you have completed the verbal portion of your interview and hung up the phone before clicking on the next button."
+  share_error: "You cannot share until candidate has completed their interview."

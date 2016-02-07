@@ -1,0 +1,12 @@
+<div id="header-col-left">
+    <strong><%= @recruiter.organization.name %></strong>, <%= @recruiter.name %>
+<br />
+Candidatos Usados: <strong><%= @recruiter.used_candidates %></strong>&nbsp;&nbsp;
+Candidatos Restantes: <strong><%= @recruiter.remaining_candidates %></strong>
+</div>
+<div id="header-col-right">
+  <%= link_to t(:home), @recruiter %>&nbsp;&nbsp;
+  <%= link_to t(:edit_account), edit_recruiter_path(@recruiter) %>&nbsp;&nbsp;
+  <%= link_to t(:guides), guides_path %>&nbsp;&nbsp;
+  <%= link_to t(:logout), destroy_recruiter_session_path, :method => :delete  %>
+</div>

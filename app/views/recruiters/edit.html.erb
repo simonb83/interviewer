@@ -1,0 +1,62 @@
+<div id="main-content">
+
+        <div id="edit-account">
+
+          <%= form_for @recruiter do |f| %>
+
+          <div class="edit-account-wrapper">
+            <div class="edit-account-left">
+              <%= t(:organization).capitalize %>
+            </div>
+
+            <div class="edit-account-right">
+              <%= @recruiter.organization.name %>
+            </div>
+          </div><!-- Edit Account Wrapper -->
+
+          <div class="edit-account-wrapper">
+            <div class="edit-account-left">
+              <%= f.label :email %>
+            </div>
+
+            <div class="edit-account-right">
+              <%= f.email_field :email %>
+            </div>
+          </div><!-- Edit Account Wrapper -->
+
+          <div class="edit-account-wrapper">
+            <div class="edit-account-left">
+              <%= f.label :name %>
+            </div>
+
+            <div class="edit-account-right">
+              <%= f. text_field :name %>
+            </div>
+          </div><!-- Edit Account Wrapper -->
+
+          <div class="edit-account-wrapper">
+            <div class="edit-account-left">
+              &nbsp;
+            </div>
+
+            <div class="edit-account-right">
+              <%= f.submit t(:cancel), id: "cancel-update-account-button", class: "button" %>
+              <%= f.submit t(:update), id: "update-account-button", class: "button" %>
+              <p>
+                <%= link_to "Cambiar Contraseña", recruiter_change_password_path(@recruiter) %><br />
+                <%= link_to t(:delete_account), recruiter_remove_account_path(@recruiter) %>
+              </p>
+            </div>
+          </div><!-- Edit Account Wrapper -->
+
+          <div class="clear">
+          </div>
+
+          <div class="clear">
+          </div>
+
+          <% end %>
+        </div><!-- Edit Account -->
+
+
+</div> <!-- Main Content -->

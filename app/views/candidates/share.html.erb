@@ -1,0 +1,42 @@
+<div id="main-content">
+
+        <div id="share-candidate">
+          <h3><%= t :share_with_colleague %></h3>
+
+          <table>
+            <tr>
+              <td class="col1">
+                <%= t :interview_id %>
+              </td>
+              <td class="col2">
+                <strong><%= "##{@candidate.uid}" %></strong>
+              </td>
+            </tr>
+            <tr>
+              <td class="col1">
+                <%= t :candidate_name %>
+              </td>
+              <td class="col2">
+                <strong><%= @candidate.to_s %></strong>
+              </td>
+            </tr>
+          </table>
+
+          <p>
+            <%= t :share_candidate_helper_1 %><br />
+            <%= form_tag controller: "messages", action: "send_message", method: "post" do %>
+
+            <%= text_field(:message, :freeform) %><br /><br />
+            <%= t :share_candidate_helper_2 %><br /><br />
+            <%= collection_select(:message, :array, @recruiter.related_recruiters, :id, :name, {include_blank: "- #{t(:select).capitalize} - "}, {multiple: true, id: "message_array"}) %>
+          </p>
+          <p>
+            <%= submit_tag t(:share_interview_submit), class: "button" %>
+          </p>
+          <% end %>
+          <div class="clear">
+          </div>
+        </div><!-- Share Candidate -->
+
+
+</div> <!-- Main Content -->

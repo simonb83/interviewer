@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+
+    <p style="margin-left: 40px; font-size: 15px;">
+      Muchas gracias por contactarnos. Un ticket de soporte correspondiente a tu problema ya está abierto. Te mantendremos al tanto del estatus del problema por email. Los datos de tu ticket están abajo.
+    </p>
+
+    <table style="margin-left: 40px; font-size: 15px;">
+      <tr>
+        <td style="width:150px;">Ticket ID:</td>
+        <td style="width:400px; font-weight:bold;">
+          <%=  @issue.id %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Fecha de Creación:</td>
+        <td style="font-weight:bold;">
+          <%=  l @issue.created_at, format: :special %>
+        </td>
+      </tr>
+
+      <% if @issue.name %>
+      <tr>
+        <td>Nombre:</td>
+        <td style="font-weight:bold;">
+          <%=  @issue.name %>
+        </td>
+      </tr>
+      <% end %>
+
+      <% if @issue.section %>
+      <tr>
+        <td>Sección:</td>
+        <td style="font-weight:bold;">
+          <%=  @issue.section %>
+        </td>
+      </tr>
+      <% end %>
+
+      <% if @issue.campaign_id %>
+      <tr>
+        <td>ID de Entrevista:</td>
+        <td style="font-weight:bold;">
+          <%=  @issue.campaign_id %>
+        </td>
+      </tr>
+      <% end %>
+
+      <% if @issue.interview_id %>
+      <tr>
+        <td>ID del Candidato:</td>
+        <td style="font-weight:bold;">
+          <%=  @issue.interview_id %>
+        </td>
+      </tr>
+      <% end %>
+
+      <tr>
+        <td>Estado:</td>
+        <td style="font-weight:bold;">
+          <% if @issue.active %>
+            <%= "Abierto" %>
+          <% else %>
+            <%= "Cerrado" %>
+          <% end %>
+        </td>
+      </tr>
+
+      <% if @issue.content %>
+      <tr>
+        <td>Contenido:</td>
+        <td style="font-weight:bold;">
+          <%=  @issue.content %>
+        </td>
+      </tr>
+      <% end %>
+
+    </table>
+  </body>
+</html>

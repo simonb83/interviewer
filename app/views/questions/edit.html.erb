@@ -1,0 +1,26 @@
+<div id="main-content">
+
+  <div id="edit-question">
+
+    <h3>Edit Question</h3>
+
+    <%= form_for @question do |f| %>
+
+      <div class="question-field">
+        <%= "Type of question:" %>
+        <strong><%= @question.kind.capitalize %></strong>
+      </div>
+
+      <div class="question-field">
+        <%= f.label :content, "Content" %>
+        <%= f.text_area :content, rows:4 %>
+      </div>
+
+      <div class="question-field">
+        <%= f.submit "Save", class: "button button-small" %>
+      </div>
+
+    <% end %>
+
+  </div>
+</div>

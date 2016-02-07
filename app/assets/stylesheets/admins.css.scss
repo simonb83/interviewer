@@ -1,0 +1,172 @@
+// Place all the styles related to the Admins controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#column-left{
+  width:450px;
+  float:left;
+}
+
+#manage-organizations, #manage-issues, #manage-attributes, .edit-attributes-model{
+  border:1px solid grey;
+  font-size: 14px;
+  padding:10px;
+}
+
+#manage-organizations, #manage-issues, #manage-guides{
+  margin-top: 20px;
+}
+
+#manage-issues table#issues td.col1{
+  width:30px;
+}
+#manage-issues table#issues td.col2{
+  width:120px;
+}
+#manage-issues table#issues td.col3{
+  width:90px;
+}
+#manage-issues table#issues td.col4, #manage-issues table#issues td.col5{
+  width:60px;
+}
+
+#manage-categories, #manage-accounts, #manage-guides{
+  border:1px solid grey;
+  font-size: 14px;
+  padding:10px;
+  margin-left: 500px;
+  width:500px;
+}
+
+#manage-categories{
+  margin-top: 20px;
+}
+
+#manage-organizations table#orgs td.col1{
+  width:170px;
+}
+
+#manage-organizations table#orgs td.col2{
+  width:80px;
+  text-align: center;
+}
+
+#manage-organizations table#orgs td.col3{
+  width:80px;
+  text-align: center;
+}
+
+#manage-categories table#cats tr#first{
+  font-weight: bold;
+}
+
+#manage-categories table#cats td.col1{
+  width:230px;
+}
+
+#manage-categories table#cats td.col2{
+  width:120px;
+  text-align: center;
+}
+
+#manage-categories table#cats td.col3{
+  width:130px;
+  text-align: center;
+}
+
+#manage-categories table#cats td.col4{
+  width:80px;
+  text-align: center;
+}
+
+#new-organization, #edit-organization, #new-recruiter, #manage-recruiter, #category-form, #accounts-list{
+  border:1px solid grey;
+  padding:10px;
+  font-size:14px;
+  width:400px;
+}
+
+#accounts-list{
+  margin-top: 30px;
+}
+#accounts-list table td{
+  width:100px;
+}
+#accounts-list table tr.header td{
+  font-weight: bold;
+}
+
+#edit-organization{
+}
+
+#manage-recruiters{
+  border:1px solid grey;
+  padding:10px;
+  font-size:14px;
+  margin-top: 20px;
+}
+
+#manage-recruiters table#recruiters td.col1{
+  width:180px;
+}
+
+#manage-recruiters table#recruiters td.col2{
+  width:220px;
+}
+
+#manage-recruiters table#recruiters td.col3{
+  width:120px;
+  text-align: center;
+}
+
+#new-recruiter .recruiter-field, #manage-recruiter .manage-recruiter-field, #new-question .question-field, #edit-question .question-field{
+  margin-bottom:15px;
+}
+
+#category-view{
+  font-size:14px;
+}
+
+#category-view table.questions td.col1{
+  width: 20px;
+  font-weight: bold;
+}
+
+#category-view table.questions td.col2{
+  width: 700px;
+}
+
+#category-view table.questions td.col3{
+  width: 35px;
+}
+
+#new-question, #edit-question{
+  border:1px solid grey;
+  padding:10px;
+  font-size:14px;
+  width:350px;
+}
+
+#ele-attributes{
+  width:1000px;
+  font-size: 14px;
+}
+
+#edit-attributes, .edit-attributes-model{
+  padding:20px;
+  border:1px solid grey;
+  width: 250px;
+  margin-top: 10px;
+}
+
+#edit-attributes div{
+  margin-top: 20px;
+}
+
+#left, #middle, #right{
+  float: left;
+}
+
+#campaign-model, #candidate-model, #recruiter-model, #organization-model, #organization-account-model{
+  margin-left: 10px;
+}

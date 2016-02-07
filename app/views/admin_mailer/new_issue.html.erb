@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <table style="margin-left: 40px; font-size: 15px;">
+      <tr>
+        <td style="width:130px;">Issue ID:</td>
+        <td style="width:400px; font-weight:bold;">
+          <%=  @issue.id %>
+        </td>
+      </tr>
+      <tr>
+        <td>Created At:</td>
+        <td style="font-weight:bold;">
+          <%=  @issue.created_at %>
+        </td>
+      </tr>
+      <tr>
+        <td>Status:</td>
+        <td style="font-weight:bold;">
+          <% if @issue.active %>
+            <%= "Open" %>
+          <% else %>
+            <%= "Closed" %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+      <tr>
+        <td>Email:</td>
+        <td style="font-weight:bold;">
+          <%=  @issue.email %>
+        </td>
+      </tr>
+      <tr>
+        <td>Name:</td>
+        <td style="font-weight:bold;">
+          <% if @issue.name %>
+            <%=  @issue.name %>
+          <% else %>
+            <%= "NA" %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>Category:</td>
+        <td style="font-weight:bold;">
+          <%=  @issue.category %>
+        </td>
+      </tr>
+      <tr>
+        <td>Section:</td>
+        <td style="font-weight:bold;">
+        <% if @issue.section %>
+            <%=  @issue.section %>
+          <% else %>
+            <%= "NA" %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>Interview ID:</td>
+        <td style="font-weight:bold;">
+        <% if @issue.interview_id %>
+            <%=  @issue.interview_id %>
+          <% else %>
+            <%= "NA" %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>Campaign ID:</td>
+        <td style="font-weight:bold;">
+        <% if @issue.campaign_id %>
+            <%=  @issue.campaign_id %>
+          <% else %>
+            <%= "NA" %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>Recruiter Type:</td>
+        <td style="font-weight:bold;">
+        <% if @issue.recruiter_type %>
+            <%=  @issue.recruiter_type %>
+          <% else %>
+            <%= "NA" %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>Recruiter ID:</td>
+        <td style="font-weight:bold;">
+        <% if @issue.recruiter_id %>
+            <%=  @issue.recruiter_id %>
+          <% else %>
+            <%= "NA" %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>Content:</td>
+        <td style="font-weight:bold;">
+        <% if @issue.content %>
+            <%=  @issue.content %>
+          <% else %>
+            <%= "NA" %>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

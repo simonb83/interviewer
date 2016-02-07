@@ -1,0 +1,34 @@
+<div id="progress">
+        Entrevista Virtual - Recomendar a tus Amigos (Opcional)
+</div>
+
+<div id="main-content">
+
+      <div id="recommend-friends">
+
+      <h2>Recomendar a tus Amigos (Opcional)</h2>
+      <br />
+      <p>
+        ¿Tienes amigos que pudieran estar interesados en este puesto?
+      </p>
+
+      <p>
+        Ingresa sus emails en el área de texto abajo, separando cada uno con una coma:
+      </p>
+
+      <%= form_tag(candidate_add_friends_path(@candidate) , method: :post) do %>
+      <br />
+      <%= text_area(Candidate, :friend_list, cols: 80, rows: 10) %>
+      <br /><br />
+
+      <%= submit_tag "Agregar Amigos", id: "add-candidates", class: "button" %>
+      <%= submit_tag "Saltar", class: "button" %>
+      <% end %>
+
+      </div> <!-- Recommend Friends -->
+
+      <div class="clear">
+
+      </div>
+
+</div> <!-- Main Content -->

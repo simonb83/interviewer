@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+
+    <p>
+    Hola,
+    <br /><br />
+    ¡Felicidades! Estás invitado a participar en una primera entrevista para el puesto de <em><%= @candidate.position_name %></em> en <em><%= @candidate.company_name %></em>.
+    </p>
+
+    <p>
+    Esta primera entrevista se llevará a cabo de forma virtual por internet y por teléfono.
+    </p>
+
+    <p>
+    <strong>Instrucciones:</strong>
+    <ol>
+      <li>Tu clave única para la entrevista es <strong><%= "#{@candidate.uid}" %></strong>. La necesitarás para acceder a la entrevista o para pedir ayuda durante el proceso.</li>
+      <li>Puedes acceder a tu entrevista directamente en el siguiente link: <%= link_to 'Comenzar Entrevista', candidate_start_interview_url(interview_id: @candidate.uid) %>.</li>
+      <li>Una vez que comiences, durará aproximadamente de 30 a 45 minutos.</li>
+    </ol>
+    </p>
+
+    <p>
+    <strong>¿Qué necesito o qué debería preparar?</strong>
+      <ol>
+      <li>Tener acceso a una computadora conectada a internet, y acceso a un teléfono de línea fija.</li>
+      <li>Puedes esperar una mezcla de preguntas sobre tus habilidades y experiencias, entonces deberías de prepararte como si fuera cualquier entrevista laboral.</li>
+      <% if @candidate.campaign.candidate_references %>
+      <li>Tendrás que proporcionar los datos de dos personas que podrían proveer una referencia laboral acerca de ti.</lI>
+      <% end %>
+      <% if @candidate.campaign.recommend_friends %>
+      <li>Al terminar la entrevista, tendrás la oportunidad de recomendar tus amigos y/o conocidos para este tipo de posición.</li>
+      <% end %>
+      </ol>
+    </p>
+
+    <p>
+    Puedes leer las preguntas frecuentes sobre el proceso de entrevistas virtuales <%= link_to "aquí", page_url("FAQ_candidate") %>.
+    </p>
+
+    <p>Ten en cuenta que la fecha y hora límite para terminar esta entrevista es a las <strong>11:59 PM</strong> del día <strong><%= @candidate.campaign.deadline %></strong>, y no se pueden aceptar sumisiones después de esta fecha.</p>
+
+    <p>
+    Saludos y mucha suerte,
+    <br /><br />
+    El Equipo en Ampleo
+    </p>
+  </body>
+  </html>

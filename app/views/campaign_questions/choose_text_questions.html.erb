@@ -1,0 +1,53 @@
+<%= javascript_tag do %>
+  window.qType = 'text';
+<% end %>
+
+<div id="main-content" class="select_questions_1">
+
+  <h3><%= t :step2 %></h3>
+  <p><%= t :step2_helper %></p>
+  <%= form_tag controller: "campaign_questions", action: "create_text_questions", method: "post" do %>
+    <% for i in 0..4 %>
+      <div class="text-question-wrapper">
+        <div class="campaign-step-2-left-col">
+          <strong><%= "#{t(:question).capitalize} #{i+1}:" %></strong>
+        </div> <!-- Campaign Step 2 Left Column -->
+        <div class="campaign-step-2-right-col">
+          <%= collection_select(Integer, i, Category.all, :id, :name, {include_blank: t(:category_select)}, {class: "category-select", id: "category-select-#{i}"})  %>
+          &nbsp;&nbsp;&nbsp;
+          <%= collection_select(Integer, i, {}, :id, :name, {include_blank: t(:question_select)}, {class: "question-select", id: "question-select-#{i}"})  %>
+        </div> <!-- Campaign Step 2 Right Column -->
+      </div><!-- text-question-wrapper -->
+    <% end %>
+
+    <div class="text-question-wrapper" id="wrapper-for-add-question">
+        <div class="campaign-step-2-left-col">
+          &nbsp;
+        </div> <!-- Campaign Step 2 Left Column -->
+        <div class="campaign-step-2-right-col">
+          <div id="add-question" class="button">
+            <%= link_to t(:additional_question), "#", id: "add-question-link" %>
+          </div><!-- Create Campaign Button -->
+        </div> <!-- Campaign Step 2 Right Column -->
+
+        <div class="clear">
+        </div>
+
+    </div><!-- Text Question Wrapper -->
+
+    <div class="text-question-wrapper">
+        <div class="campaign-step-2-left-col">
+          &nbsp;
+        </div> <!-- Campaign Step 2 Left Column -->
+        <div class="campaign-step-2-right-col">
+          <%= submit_tag t(:next), class: "step-2-next button" %>
+          <%= submit_tag t(:skip), class: "step-2-next button" %>
+        </div> <!-- Campaign Step 2 Right Column -->
+      </div><!-- text-question-wrapper -->
+
+<% end %>
+
+<div class="clear">
+</div>
+
+</div> <!-- main content -->

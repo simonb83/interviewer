@@ -1,0 +1,51 @@
+<%= javascript_tag do %>
+  <% if request.fullpath.include?('edit_text_questions') %>
+      window.qType = 'text';
+  <% else %>
+      window.qType = 'verbal';
+  <% end %>
+  window.c_id = <%= @campaign.id  %>;
+<% end %>
+
+<div id="main-content" class="select_questions_2">
+
+      <h3>
+      <% if request.fullpath.include?('edit_text_questions') %>
+        <%= t :edit_text_questions %>
+      <% else %>
+        <%= t :edit_verbal_questions %>
+      <% end %></h3>
+      <div id="edit-questions">
+      <% @questions.each_with_index do |question, i| %>
+            <div class="edit-questions-wrapper">
+              <div class="edit-questions-left-internal" id=<%= "question_#{i+1}" %>>
+                <strong><%= "#{t(:question).capitalize} #{i+1}" %></strong>
+              </div>
+              <div class="edit-questions-right-internal">
+                <%= question.content %>
+              </div>
+              <div class="edit-questions-right-right-internal">
+                <%= link_to t(:delete_question), campaign_remove_question_path(@campaign, question_id: question.id), class: "button button-small", id: "delete_question_#{i+1}", method: :delete %>
+              </div>
+              <div class="clear">
+              </div>
+            </div><!-- Step 4 wrapper -->
+      <% end  %>
+      <div id="end-edit-questions"></div>
+      </div><!--Edit Questions -->
+      <div id="add-question">
+            <%= link_to t(:additional_question), "#", {id: "add-question-link", class: "button"} %>
+      </div><!-- Create Campaign Button -->
+
+      <div class="clear">
+      </div>
+
+      <div id="done">
+            <%= link_to t(:save), session.delete(:return_to_principal), class: "button" %>
+      </div><!-- Create Campaign Button -->
+
+      <div class="clear">
+      </div>
+
+
+</div><!-- Main Content -->

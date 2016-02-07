@@ -1,0 +1,92 @@
+<div id="main-content">
+
+      <h3>
+        <% if @created == true %>
+          <%= t :interview_questions %>
+        <% else %>
+          <%= t :step4 %></h3>
+        <% end %>
+
+      <div class="text-question-wrapper">
+
+        <% if @campaign.gateway %>
+          <div class="campaign-step-4-single-col">
+            <div class="step-4-header"><%= t :filter_questions %></div>
+
+            <% @filter_questions.each_with_index do |question, i| %>
+              <div class="campaign-step-4-wrapper">
+                <div class="campaign-step-4-left-internal">
+                  <strong><%= "#{t(:question).capitalize} #{i+1}" %></strong>
+                </div>
+                <div class="campaign-step-4-right-internal">
+                  <%= "#{question[0]}" %>
+                  <span class="italic"><%= "(#{question[1]})" %></span>
+                </div>
+                <div class="clear">
+                </div>
+              </div><!-- Step 4 wrapper -->
+            <% end  %>
+            <%= link_to t(:edit_filter_questions), campaign_edit_filter_options_path(@campaign, request_path: request.fullpath), class: "button" %>
+          </div> <!-- Campaign Step 4 Left Column -->
+        <% end %>
+
+        <div class="campaign-step-4-single-col">
+          <div class="step-4-header"><%= t :text_questions %></div>
+
+          <% @campaign.questions.text.each_with_index do |question, i| %>
+            <div class="campaign-step-4-wrapper">
+              <div class="campaign-step-4-left-internal">
+                <strong><%= "#{t(:question).capitalize} #{i+1}" %></strong>
+              </div>
+              <div class="campaign-step-4-right-internal">
+                <%= question.content %>
+              </div>
+              <div class="clear">
+              </div>
+            </div><!-- Step 4 wrapper -->
+          <% end  %>
+          <%= link_to t(:edit_text_questions), campaign_edit_text_questions_path(@campaign, request_path: request.fullpath), class: "button" %>
+        </div> <!-- Campaign Step 4 Left Column -->
+
+        <div class="campaign-step-4-single-col">
+          <div class="step-4-header"><%= t :verbal_questions %></div>
+
+          <% @campaign.questions.verbal.each_with_index do |question, i| %>
+            <div class="campaign-step-4-wrapper">
+              <div class="campaign-step-4-left-internal">
+                <strong><%= "#{t(:question).capitalize} #{i+1}" %></strong>
+              </div>
+              <div class="campaign-step-4-right-internal">
+                <%= question.content %>
+              </div>
+              <div class="clear">
+              </div>
+            </div><!-- Step 4 wrapper -->
+          <% end  %>
+          <%= link_to t(:edit_verbal_questions), campaign_edit_verbal_questions_path(@campaign, request_path: request.fullpath), class: "button" %>
+        </div> <!-- Campaign Step 4 Right Column -->
+
+        <div class="clear">
+        </div>
+
+      </div><!-- Text Question Wrapper -->
+
+      <div class="text-question-wrapper">
+        <div class="campaign-step-4-single-col" id="step-4-bottom-left">
+          <% if @created == true %>
+            <%= link_to t(:interview_home), recruiter_campaign_path(@recruiter,@campaign), id: "next", class: "button" %>
+          <% else %>
+            <%= link_to t(:next), campaign_enter_candidates_path(@campaign), id: "next", class: "button" %>
+          <% end %>
+        </div> <!-- Campaign Step 1 Left Column -->
+
+        <div class="campaign-step-4-right-col" id="step-4-bottom-right">
+
+        </div> <!-- Campaign Step 1 Right Column -->
+
+        <div class="clear">
+        </div>
+
+      </div><!-- Text Question Wrapper -->
+
+</div><!-- Main Content -->

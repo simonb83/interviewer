@@ -1,0 +1,110 @@
+<div id="main-content">
+
+      <div id="tech-support-form-wrapper" >
+        <h3><%= t :technical_support %></h3>
+
+      <%= form_for(@issue) do |f| %>
+
+        <% if @issue.errors.any? %>
+          <div id="error_explanation">
+          <h2><%= pluralize(@issue.errors.count, "error") %></h2>
+
+          <ul>
+          <% @issue.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+        </div>
+        <% end %>
+
+        <%= f.hidden_field :category %>
+        <%= f.hidden_field :recruiter_id %>
+
+        <div class="form-element">
+        <div class="form-col-left">
+          <%= f.label :email %>
+        </div>
+        <div class="form-col-middle">
+          <%= f.text_field :email %>
+        </div>
+        <div class="form-col-right">
+          <%= t :issue_email_helper %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+        <div class="form-element">
+        <div class="form-col-left">
+          <%= label_tag(t(:issue_type)) %>
+        </div>
+        <div class="form-col-middle">
+          <%= f.select :recruiter_type, [t(:creating_modifying_or_deleting), t(:managing_candidates), t(:audio_problems), t(:sharing_candidates), t(:managing_own_account), t(:other)] %>
+        </div>
+        <div class="form-col-right">
+          <%= t :issue_type_helper %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+        <div class="form-element">
+        <div class="form-col-left">
+          <%= label_tag(t(:issue).capitalize) %>
+        </div>
+        <div class="form-col-middle">
+          <%= f.text_area :content, {rows: "6", cols:"40"} %>
+        </div>
+        <div class="form-col-right">
+          <%= t :issue_content_helper %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+        <div class="form-element">
+        <div class="form-col-left">
+        <%= label_tag(t(:related_campaign)) %>
+        </div>
+        <div class="form-col-middle">
+        <%= f.collection_select(:campaign_id, @recruiter.campaigns, :id, "combined_display", {:include_blank => t(:select).capitalize}) %>
+        </div>
+        <div class="form-col-right">
+          <%= t :related_campaign_helper %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+        <div class="form-element">
+        <div class="form-col-left">
+        <%= label_tag(t(:related_interview)) %>
+        </div>
+        <div class="form-col-middle">
+        <%= f.collection_select(:interview_id, @recruiter.candidates, :id, :email, {:include_blank => t(:select).capitalize}) %>
+        </div>
+        <div class="form-col-right">
+          <%= t :related_interview_helper %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+        <div class="form-element" id="form-element-submit">
+        <div class="form-col-left">
+          &nbsp;
+        </div>
+        <div class="form-col-middle">
+          <%= f.submit t(:submit), class: "button" %>
+        </div>
+        <div class="form-col-right">
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+      <% end %>
+
+      </div><!-- tech support form wrapper -->
+
+</div> <!-- Main Content -->

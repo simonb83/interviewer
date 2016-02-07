@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# one:
+#   id: 1
+#   content: Question 1
+#   kind: text
+
+# two:
+#   id: 2
+#   content: Question 2
+#   kind: text
+
+# three:
+#   id: 3
+#   content: Question 3
+#   kind: verbal
+
+# four:
+#   id: 4
+#   content: Question 4
+#   kind: verbal

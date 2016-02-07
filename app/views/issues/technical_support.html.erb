@@ -1,0 +1,94 @@
+<div id="main-content">
+
+      <div id="tech-support-form-wrapper" >
+      <h3><%= t :technical_support %></h3>
+      <%= form_for(@issue) do |f| %>
+
+        <% if @issue.errors.any? %>
+          <div id="error_explanation">
+          <h2><%= pluralize(@issue.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+          <ul>
+          <% @issue.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+        </div>
+        <% end %>
+
+        <%= f.hidden_field :category %>
+
+        <div class="form-element">
+        <div class="form-col-left">
+          <%= f.label :email %>
+        </div>
+        <div class="form-col-middle">
+          <%= f.text_field :email %>
+        </div>
+        <div class="form-col-right">
+          <%= t :issue_email_helper %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+        <div class="form-element">
+        <div class="form-col-left">
+          <%= f.label :name %>
+        </div>
+        <div class="form-col-middle">
+          <%= f.text_field :name %>
+        </div>
+        <div class="form-col-right">
+          <%= t :issue_name_helper %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+        <div class="form-element">
+        <div class="form-col-left">
+          <%= f.label :interview_id %>
+        </div>
+        <div class="form-col-middle">
+          <%= f.text_field :interview_id %>
+        </div>
+        <div class="form-col-right">
+          <%= t :cand_issue_interview_id_helper %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+        <div class="form-element">
+        <div class="form-col-left">
+        <%= label_tag(t(:issue).capitalize) %>
+        </div>
+        <div class="form-col-middle">
+        <%= f.text_area :content, {rows: "6", cols:"34"} %>
+        </div>
+        <div class="form-col-right">
+          <%= t :issue_content_helper %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+        <div class="form-element" id="form-element-submit">
+        <div class="form-col-left">
+          &nbsp;
+        </div>
+        <div class="form-col-middle">
+          <%= f.submit t(:submit), class: "button" %>
+        </div>
+        <div class="form-col-right">
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+      <% end %>
+
+      </div><!-- tech support form wrapper -->
+
+</div> <!-- Main Content -->

@@ -1,0 +1,41 @@
+<div id="main-content">
+  <div id="category-view">
+    <h3><%= @category.name %></h3>
+
+      <p>
+        <%= link_to "Add Question", new_question_path(category_id: @category.id), class: "button button-small" %>
+        <%= link_to "Edit Category", edit_category_path(@category), id: "edit-category-#{@category.id}", class: "button button-small" %>
+        <%= link_to "Delete Category", @category, method: :delete, class: "button button-small" %>
+      </p>
+
+      <div id="text-questions">
+        <h3>Text Questions</h3>
+        <table class="questions">
+          <% @text_questions.each_with_index do |q,i| %>
+          <tr>
+            <td class="col1"><%= "#{i+1}." %></td>
+            <td class="col2"><%= q.content %></td>
+            <td class="col3"><%= q.id %></td>
+            <td class="col3"><%= link_to "Edit", edit_question_path(q), id: "edit-text-question-#{q.id}" %></td>
+            <td class="col3"><%= link_to "Delete", q, method: :delete, id: "delete-text-question-#{q.id}" %></td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+
+      <div id="verbal-questions">
+        <h3>Verbal Questions</h3>
+        <table class="questions">
+          <% @verbal_questions.each_with_index do |q,i| %>
+          <tr>
+            <td class="col1"><%= "#{i+1}." %></td>
+            <td class="col2"><%= q.content %></td>
+            <td class="col3"><%= q.id %></td>
+            <td class="col3"><%= link_to "Edit", edit_question_path(q), id: "edit-verbal-question-#{q.id}" %></td>
+            <td class="col3"><%= link_to "Delete", q, method: :delete, id: "delete-verbal-question-#{q.id}" %></td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+</div>

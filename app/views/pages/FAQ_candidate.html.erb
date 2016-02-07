@@ -1,0 +1,65 @@
+<div id="main-content">
+
+<h3>Preguntas Frecuentes</h3>
+
+<div id="questions_list">
+<% @questions = ["Si la clave que me ofrecieron marca error y no me deja ingresar, ¿Cómo se puede resolver esto?", "Si la página no carga, o me marca en reparación, o error, ¿A quién puedo recurrir?", "Si no he terminado la entrevista y por alguna razón pierdo la conexión a internet o a la página, ¿Qué sucede?", "¿Desde cuando puedo realizar la entrevista?", "¿Tengo que mandar algún número de teléfono fijo a la dirección de correo de donde me enviaron la invitación?", "Menciona que la entrevista dura de 35 a 40 minutos, pero ¿Puedo llevarme más tiempo?", "¿Qué sucede si se me pasó la fecha?"] %>
+<ol>
+<% @questions.each_with_index do |q, i| %>
+      <li><a href=<%= "#q_#{i+1}" %>><%= q %></a></li>
+<% end %>
+</ol>
+</div>
+
+<div id ="questions_answers">
+
+<p>
+<a name="q_1"><span class="question">Si la clave que me ofrecieron marca error y no me deja ingresar, ¿Cómo se puede resolver esto?</span></a><br /><br />
+
+Si tu clave te marca error o no te deja ingresar, necesitas ponerte en contacto con nosotros aquí, o alternativamente mandando un email a support@ampleo.mx.
+Es importante que nos mandes tu nombre y tu clave para que podamos brindarte apoyo lo más rápido posible.
+</p>
+
+<p>
+<a name="q_2"><span class="question">Si la página no carga, o me marca en reparación, o error, ¿A quién puedo recurrir?</span></a><br /><br />
+
+Si la página no carga, o para cualquier error, puedes contactarnos en support@ampleo.mx.
+</P>
+
+<p>
+<a name="q_3"><span class="question">Si no he terminado la entrevista y por alguna razón pierdo la conexión a internet o a la página, ¿Qué sucede? ¿Se pierde la entrevista? ¿Sólo tengo una oportunidad? ¿Qué puedo hacer?</span></a><br /><br />
+
+Una vez que completes una sección de la entrevista, se guardarán tus respuestas en el sistema antes de proceder. Si se pierde la conexión y guardaste algunas respuestas, podrás continuar a partir de la próxima sección pendiente.
+
+Sin embargo si se pierde la conexión mientras estas contestando alguna pregunta, lo más probable es que no se haya guardado y tendrás que contestarla de nuevo.
+</p>
+
+<p>
+<a name="q_4"><span class="question">¿Desde cuándo puedo realizar la entrevista?</span></a><br /><br />
+
+Puedes realizar la entrevista a partir del momento en que recibes tu invitación.
+</p>
+
+<p>
+<a name="q_5"><span class="question">¿Tengo que mandar algún número de teléfono fijo a la dirección de correo de donde me enviaron la invitación?</span></a><br /><br />
+
+No. Sólo tendrás que ingresar tu número de teléfono fijo en la página correspondiente de la entrevista.
+Si tienes problemas, puedes contactarnos aquí, o alternativamente mandando un email a support@ampleo.mx.
+</p>
+
+<p>
+<a name="q_6"><span class="question">Menciona que la entrevista dura de 35 a 40 minutos, pero ¿Puedo llevarme más tiempo? ¿Hay tiempo límite en la entrevista?</span></a><br /><br />
+
+En la sección escrita de la entrevista no hay límite de tiempo.
+En la sección de voz de la entrevista hay un límite de 8 minutos para contestar cada pregunta.
+</p>
+
+<p>
+<a name="q_7"><span class="question">¿Qué sucede si se me pasó la fecha?</span></a><br /><br />
+
+Si se te pasó la fecha, ya no podrás completar tu entrevista, y no serás considerado para la posición.
+En el caso que el empleador decida re-abrir la posición, o extender la fecha límite, recibirás un email avisándote del cambio. En este caso, podrás completar la entrevista en cualquier momento antes de la nueva fecha límite.
+</p>
+</div>
+
+</div>

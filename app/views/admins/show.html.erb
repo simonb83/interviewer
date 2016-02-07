@@ -1,0 +1,124 @@
+<div id="main-content">
+
+  <div id="column-left">
+
+  <div id="manage-attributes">
+
+    <h3>Update Attributes for Interviews or Candidates</h3>
+
+    <%= link_to "Update Attribute",  admin_form_path , class: "button button-small"%>
+
+  </div>
+
+  <div id="manage-organizations">
+
+  <h3>Manage Organizations &amp; Recruiters</h3>
+
+  <%= link_to "New Organization", new_organization_path, class: "button button-small" %>
+
+  <h4>Current Organizations</h4>
+
+  <table id="orgs">
+      <tr>
+        <td class="col1"><strong>Name</strong></td>
+        <td class="col2"><strong># Recruiters</strong></td>
+        <td></td>
+      </tr>
+    <% @organizations.each do |org| %>
+      <tr>
+        <td class="col1"><%= org.name %></td>
+        <td class="col2"><%= org.recruiters.count %></td>
+        <td class="col3"><%= link_to "View", org %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  </div><!-- Manage Organizations -->
+
+  <div id="manage-issues">
+
+  <h3>Manage Tickets</h3>
+
+  <table id="issues">
+      <tr>
+        <td class="col1"><strong>ID</strong></td>
+        <td class="col2"><strong>Date Created</strong></td>
+        <td class="col3"><strong>Ticket Type</strong></td>
+        <td class="col4"><strong>Status</strong></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% @issues.each do |issue| %>
+      <tr>
+        <td class="col1"><%= issue.id %></td>
+        <td class="col2"><%= l issue.created_at, format: :special %></td>
+        <td class="col3"><%= issue.category %></td>
+        <td class="col4">
+          <% if issue.active %>
+            <%= "Open" %>
+          <% else %>
+            <%= "Closed" %>
+          <% end %>
+        </td>
+        <td class="col5"><%= link_to "View", issue %></td>
+        <td class="col5">
+          <% if issue.active %>
+            <%= link_to "Close", issue_update_status_path(issue), method: :put %>
+          <% else %>
+            <%= link_to "Open", issue_update_status_path(issue), method: :put %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+  </div><!-- Manage Issues -->
+
+  </div><!-- Column Left -->
+
+  <div id="manage-accounts">
+    <h3>Manage Accounts</h3>
+
+    <%= link_to "New Account", new_account_path, class: "button button-small" %>
+    <br /><br />
+    <% @accounts.each do |acc| %>
+      <%= link_to acc.internal_id, acc %>
+    <% end %>
+  </div><!--manage accounts-->
+
+  <div id="manage-guides">
+    <h3>Manage Guides</h3>
+
+    <%= link_to "New Guide", new_guide_path, class: "button button-small" %>
+  </div>
+
+  <div id="manage-categories">
+
+    <h3>Manage Categories &amp; Questions</h3>
+
+    <%= link_to "New Category", new_category_path, class: "button button-small" %>
+
+    <h4>Current Categories</h4>
+
+      <table id="cats">
+        <tr id="first">
+          <td class="col1">Name</td>
+          <td class="col2"># Text Questions</td>
+          <td class="col3"># Verbal Questions</td>
+          <td class="col4"></td>
+        </tr>
+      <% @categories.each do |cat| %>
+        <tr>
+          <td class="col1"><%= cat.name %></td>
+          <td class="col2"><%= cat.questions.text.count %></td>
+          <td class="col3"><%= cat.questions.verbal.count %></td>
+          <td class="col4"><%= link_to "View", cat %></td>
+        </tr>
+      <% end %>
+      </table>
+
+  </div><!-- Manage Categories -->
+
+  <div class="clear"></div>
+
+</div>

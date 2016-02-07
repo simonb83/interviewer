@@ -1,0 +1,27 @@
+<div id="main-content">
+
+  <div id="new-question">
+
+    <h3>New Question</h3>
+
+    <%= form_tag('create_questions', method: :post) %>
+
+      <div class="question-field"><%= label_tag 'content', "Content" %><br />
+      <%= text_area_tag 'content', nil, cols: 30 %>
+      </div>
+
+      <%= hidden_field_tag 'category_id', @category_id %>
+
+      <div class="question-field"><%= label_tag 'text_question', "Text Question" %>
+        <%= check_box_tag 'text_question' %>
+      </div>
+
+      <div class="question-field"><%= label_tag 'verbal_question', "Verbal Question" %>
+        <%= check_box_tag 'verbal_question' %>
+      </div>
+
+      <div class="question-field"><%= submit_tag "Save", class: "button button-small" %></div>
+
+    </div>
+
+</div>

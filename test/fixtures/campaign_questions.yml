@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# one:
+#   campaign_id: 3
+#   question_id: 1
+
+# two:
+#   campaign_id: 3
+#   question_id: 2
+
+# three:
+#   campaign_id: 3
+#   question_id: 3
+
+# four:
+#   campaign_id: 3
+#   question_id: 4

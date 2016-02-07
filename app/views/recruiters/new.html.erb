@@ -1,0 +1,22 @@
+<div id="main-content">
+
+  <div id="new-recruiter">
+      <h3>Create New Recruiter</h3>
+
+      <%= form_for @recruiter do |f| %>
+
+        <div class="recruiter-field"><%= f.label :name, "Name" %><br />
+        <%= f.text_field :name, size:45 %></div>
+
+        <div class="recruiter-field"><%= f.label :email, "Email" %><br />
+        <%= f.email_field :email, size: 45 %></div>
+
+        <%= f.hidden_field :organization_id %>
+
+        <div class="recruiter-field"><%= f.label :password, "Password" %><br />
+        <%= f.password_field :password, size: 45 %></div>
+
+        <div class="recruiter-field"><%= f.submit "Save", class: "button button-small" %></div>
+      <% end %>
+  </div>
+</div>

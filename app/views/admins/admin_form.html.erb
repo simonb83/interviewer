@@ -1,0 +1,115 @@
+<div id="main-content">
+
+<div id="wrapper">
+
+<div id="left">
+
+<div id="edit-attributes">
+
+<%= form_tag('/update_item', method: :put) do %>
+
+<div>
+<%= label_tag 'Element ID' %><br />
+<%= number_field_tag 'item_id' %>
+</div>
+
+<div>
+<%= label_tag 'Attribute Name' %><br />
+<%= text_field_tag 'attribute' %>
+</div>
+
+<div>
+<%= label_tag 'New Value' %><br />
+<%= text_field_tag 'value' %>
+</div>
+
+<div>
+<%= label_tag 'Type of Element' %><br />
+<%= radio_button_tag 'item_type', 'Campaign' %>
+<%= label_tag 'Campaign' %><br />
+<%= radio_button_tag 'item_type', 'Candidate' %>
+<%= label_tag 'Candidate' %><br />
+<%= radio_button_tag 'item_type', 'Answer' %>
+<%= label_tag 'Answer' %><br />
+<%= radio_button_tag 'item_type', 'Recruiter' %>
+<%= label_tag 'Recruiter' %><br />
+<%= radio_button_tag 'item_type', 'Organization' %>
+<%= label_tag 'Organization' %><br />
+<%= radio_button_tag 'item_type', 'Account' %>
+<%= label_tag 'Account' %><br />
+<%= radio_button_tag 'item_type', 'OrganizationAccount' %>
+<%= label_tag 'Organization-Account' %><br />
+</div>
+
+<div>
+  <%= submit_tag 'Update', class: "button button-small" %>
+<% end %>
+  <%= link_to 'View', "#", class: "button-small", id: "view-attribute" %>
+</div>
+
+</div><!-- Edit Attributes -->
+
+<div class="edit-attributes-model" id="answer-model">
+    <h4>Answer</h4>
+    <% Answer.columns.each do |column| %>
+      <%= column.name %><br />
+    <% end %>
+</div>
+
+<div class="edit-attributes-model" id="account-model">
+    <h4>Account</h4>
+    <% Account.columns.each do |column| %>
+      <%= column.name %><br />
+    <% end %>
+</div>
+
+</div><!-- left-->
+
+<div id="middle">
+
+  <div class="edit-attributes-model" id="campaign-model">
+    <h4>Campaign</h4>
+    <% Campaign.columns.each do |column| %>
+      <%= column.name %><br />
+    <% end %>
+  </div>
+
+  <div class="edit-attributes-model" id="recruiter-model">
+    <h4>Recruiter</h4>
+    <% Recruiter.columns.each do |column| %>
+      <%= column.name %><br />
+    <% end %>
+  </div>
+
+</div><!--middle-->
+
+<div id="right">
+
+  <div class="edit-attributes-model" id="candidate-model">
+    <h4>Candidate</h4>
+    <% Candidate.columns.each do |column| %>
+      <%= column.name %><br />
+    <% end %>
+  </div>
+
+  <div class="edit-attributes-model" id="organization-model">
+    <h4>Organization</h4>
+    <% Organization.columns.each do |column| %>
+      <%= column.name %><br />
+    <% end %>
+  </div>
+
+  <div class="edit-attributes-model" id="organization-account-model">
+    <h4>Organization-Account</h4>
+    <% OrganizationAccount.columns.each do |column| %>
+      <%= column.name %><br />
+    <% end %>
+  </div>
+
+</div><!--right-->
+
+</div>
+
+<div class="clear"></div>
+
+</div>

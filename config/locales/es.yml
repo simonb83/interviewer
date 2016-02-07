@@ -1,0 +1,378 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+es:
+  "true": "Sí"
+  "false": "No"
+  "yes": "Sí"
+  "no": "No"
+
+  date:
+    order: [ !ruby/symbol day, !ruby/symbol month, !ruby/symbol year ]
+    formats:
+      special: "%d-%m-%Y %H:%M"
+      special_2: "%d-%m-%Y"
+    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
+    abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
+  time:
+    formats:
+      special: "%d-%m-%Y %H:%M"
+      special_2: "%d-%m-%Y"
+
+  # Default error messages
+  errors:
+    messages:
+      taken: "has already been taken"
+
+  #Devise
+  forgot_password: ¿Olvidaste tu Contraseña?
+  send_reset_instructions: "Mandarme instrucciones para restablecerlo"
+
+  # Active Record models configuration
+  activerecord:
+    models:
+      profile:
+         #blank: "This is a custom blank message for %{model}: %{attribute}"
+          # one: "This is a custom blank message for %{model}: %{attribute}"
+    attributes:
+      campaign:
+        deadline: "Fecha Límite"
+        position_name: "Nombre del Puesto"
+      candidate:
+        name: "Nombre"
+        surname: "Apellidos"
+        phone_number: "Número Telefónico"
+      issue:
+        interview_id: "Entrevista"
+        section: "Sección de Entrevista"
+        content: "Problema"
+        name: "Nombre"
+      recruiter:
+        name: "Nombre"
+        password: "Contraseña"
+    errors:
+      models:
+        recruiter:
+          attributes:
+            password:
+              too_short: Tu nueva contraseña es demasiada corta.
+              confirmation: Tu nueva contraseña y confirmación de contraseña no coinciden.
+            current_password:
+              invalid: Tu contraseña actual es inválido
+            unlock_token:
+              invalid: "Token de desbloqueo no válido"
+        campaign:
+          attributes:
+            position_name:
+              blank: "no puede estar en blanco"
+        issue:
+          attributes:
+            interview_id:
+              blank: "no puede estar en blanco"
+            email:
+              blank:  "no puede estar en blanco"
+        profile:
+          attributes:
+            dob:
+              blank: "Por favor selecciona tu fecha de nacimiento."
+            estado_civil:
+              blank: "Por favor selecciona tu estado civil."
+            gender:
+              blank: "Por favor selecciona tu género."
+            name:
+              blank: "Por favor ingresa tu nombre."
+            surname_paternal:
+              blank: "Por favor ingresa tu apellido paterno."
+            desired_salary:
+              blank: "Por favor ingresa tu apellido paterno."
+      messages:
+        record_invalid: "Validation failed: %{errors}"
+        restrict_dependent_destroy:
+          one: "Cannot delete record because a dependent %{record} exists"
+          many: "Cannot delete record because dependent %{record} exist"
+        # Append your own errors here or at the model/attributes scope.
+
+      # You can define own errors for models or model attributes.
+      # The values :model, :attribute and :value are always available for interpolation.
+      #
+      # For example,
+        # models:
+        #   campaign:
+        #     attributes:
+        #       deadline: "Fecha Límite"
+      #       blank: "This is a custom blank message for %{model}: %{attribute}"
+      #       attributes:
+      #         login:
+      #           blank: "This is a custom blank message for User login"
+      # Will define custom blank validation message for User model and
+      # custom blank validation message for login attribute of User model.
+      #models:
+
+    # Translate model names. Used in Model.human_name().
+    #models:
+      # For example,
+      #   user: "Dude"
+      # will translate User model name to "Dude"
+
+    # Translate model attribute names. Used in Model.human_attribute_name(attribute).
+    #attributes:
+      # For example,
+      #   user:
+      #     login: "Handle"
+      # will translate User attribute "login" as "Handle"
+
+  #Error messages
+
+  #General terms & navigation
+
+  home: Inicio
+  edit_account: Editar Cuenta
+  guides: Guías
+  logout: Salir
+  login: Ingresar
+  recruiter_sign_in:  "Ingresar a tu Cuenta"
+  support: Ayuda
+  interviews: Interviews
+  gateway_questions: Preguntas de Filtro
+  position_name: Nombre del Puesto
+  company_name: Nombre de la Empresa
+  date_created: "Fecha de Creación"
+  status: estado
+  status_active: activo
+  status_closed: cerrado
+  new_interview: New Interview
+  from: De
+  delete: Eliminar
+  organization: empresa
+  company: Empresa
+  name: nombre
+  surname_paternal: apellido paterno
+  surname_maternal: apellido materno
+  estado_civil: estado civil
+  dob: Fecha de nacimiento
+  desired_salary: sueldo deseado
+  gender: género
+  cancel: Cancelar
+  update: Actualizar
+  delete_account: Borrar Cuenta
+  number_candidates:  No. de Candidatos
+  emails_sent: "# Emails Enviados"
+  interviews_completed: "# Entrevistas Completadas"
+  deadline: "Fecha Límite"
+  accepted: aceptado
+  accepted_candidates: candidatos aceptados
+  rejected_candidates: candidatos rechazados
+  appeted_pl: aceptados
+  rejected: rechazado
+  rejected_pl: rechazados
+  add_candidates: Agregar Candidatos
+  change_deadline: Modificar Fecha Límite
+  close_campaign: Cerrar Entrevista
+  delete_campaign: Borrar Entrevista
+  interview_status: Estado de Entrevista
+  date_completed: "Fecha de Realización"
+  candidate_status: Estado del Candidato
+  actions: acciones
+  submit: Enviar
+  save: Guardar
+  completed: terminado
+  pending: pendiente
+  accept: aceptar
+  reject: rechazar
+  see_more: ver
+  interview_id: ID de Candidato
+  campaign_id: ID de Entrevista
+  candidate_email: Email del Candidato
+  candidate_name: Nombre del Candidato
+  edit_candidate_email: Editar Email del Candidato
+  share_interview: Compartir Candidato
+  accept_candidate: Aceptar Candidato
+  reject_candidate: Rechazar Candidato
+  delete_candidate: Borrar Candidato
+  text_interview: Entrevista Escrita
+  verbal_interview: Entrevista de Voz
+  recommended_friends: Amigos Recomendados
+  not_recommended: "El candidato no ha recomendado ningún amigo"
+  recommend_friends?: "Recomendar Amigos?"
+  receive_apps?: "Recibir Solicitudes?"
+  receive_applications: "Recibir Solicitudes"
+  receive_copy?: "Recibir Copia de Solicitudes?"
+  category_select: "Seleccionar Categoría"
+  question_select: "Seleccionar Pregunta"
+  additional_question:  "Agregar Otra Pregunta"
+  add_question: "Agregar Pregunta"
+  call_me: Call Me
+  issue: Problema
+  here: aquí
+  question: pregunta
+  please_select: please select
+  campaigns: entrevistas
+  total: total
+  active: activo
+  closed: cerrado
+  messages: mensajes
+  sender: de
+  FAQ_candidate: Preguntas Frecuentes
+  edit_text_questions: Editar Preguntas Escritas
+  edit_verbal_questions: Editar Preguntas de Voz
+  edit_filter_questions: Editar Preguntas de Filtro
+  delete_question: Borrar Pregunta
+  privacy: Privacidad
+  tou: Condiciones de Uso
+
+  new_campaign: nueva entrevista
+  error: error
+  errors: errores
+  next: Continuar
+  skip: Omitir
+  back: Atras
+  no_campaigns: "Actualmente no tienes ninguna entrevista"
+  no_messages:  "Actualmente no tienes ningún mensaje"
+  sure: "¿Estás seguro?"
+  create_campaign:  "Crear Entrevista"
+
+  text_questions: "Preguntas Escritas"
+  number_text_questions:  No. de Preguntas Escritas
+  number_verbal_questions: No. de Preguntas de Voz
+  verbal_questions: "Preguntas de Voz"
+  filter_questions: "Preguntas de Filtro"
+  interview_questions: "Preguntas de Entrevista"
+  show_questions: "Editar Preguntas"
+  interview_home: "Regresar a Entrevista"
+  allow_recommend_friends: Recomendar Amigos
+  allow_candidate_references: Pedir Referencias
+  allowed: "Permitido"
+  allow: Permitir
+  not_allowed: "No Permitido"
+  deny: No Permitir
+  references_not_request: No Pedir
+  references_request: Pedir
+  candidate_references?: "Requerir Referencias?"
+
+
+
+  #Create Recruitment Campaign
+  step1:  "Paso 1: Crea Tu Entrevista"
+  position_name_helper: "Ingresa el nombre o título de la vacante relacionada con esta entrevista."
+  company_name_helper: "Confirma o modifica el nombre de la empresa relacionada con esta entrevista."
+  deadline_helper:  "Ingresa la fecha límite que tendrán los candidatos para completar la entrevista. Después de esta fecha, el sistema no aceptará más respuestas. Recomendamos poner la fecha límite para al menos 5 días en el futuro."
+  gateway_helper: "Habilita esta opción si quieres automaticamente filtrar a los candidatos usando datos demográficos o preguntas cerradas. Los candidatos que no pasan el filtro serán recahazadas del proceso."
+  recommend_friends_helper: 'Si quieres dejar que los candidatos recomienden a otras personas para este puesto, selecciona "Sí"; entonces los candidatos podrán proporcionar recomendaciones una vez que hayan terminado su propia entrevista.'
+  candidate_references_helper: 'Si quieres pedir a los candidatos referencias laborales, selecciona "Sí"; entonces los candidatos tendrán que proporcionar los datos de contacto de 2 personas al terminar su entrevista.'
+  receive_applications_helper: 'Si quieres permitir que los candidatos envían su aplicación directamente a la platforma, selecciona "Sí".'
+  forward_applications_helper: '¿Quieres recibir una copia de aplicaciones que los candidatos envían directamente a la platforma? Las copias se mandarán al email que tienes registrado en tu cuenta.'
+
+  step2: "Paso 2: Seleccionar las preguntas escritas"
+  step2_helper: 'Estas preguntas formarán la primera parte de la entrevista. Los candidatos sólo tendrán un intento para contestarlas. Recomendamos incluir al menos 3 preguntas escritas; sin embargo si no quieres incluirlas en la entrevista, haz clic en el botón de "Omitir".'
+  written_questions_added: "Las preguntas escritas fueron agregadas exitosamente a tu entrevista."
+
+  step3:  "Paso 3: Seleccionar las Preguntas de Voz"
+  step3_helper: "Necesitas seleccionar al menos una pregunta de voz. Los candidatos tendrán la oportunidad de grabar sus respuestas a estas preguntas por teléfono como parte de su entrevista virtual."
+  step3_error: "Necesitas seleccionar al menos una pregunta de voz."
+  verbal_questions_added: "Las preguntas de voz fueron agregadas exitosamente a tu entrevista."
+
+  step2A: "Agregar preguntas de filtro"
+  step2A_helper: "Aquí puedes agregar 'preguntas de filtro' que te ayudarán filtrar los candidatos basados en sus respuestas a preguntas cerradas.<br />"
+  step4: "Paso 4: Revisa las Preguntas que Seleccionaste"
+  step5: "Paso 5: Agregar Candidatos"
+  enter_candidates_helper_1: "Ingresa los emails de los candidatos que quieres que participen en esta entrevista en el área de texto de abajo, poniendo a cada uno en una nueva línea, o separándolos por comas."
+  enter_candidates_helper_2: "Ten en cuenta que cuando das clic en el botón de ‘Crear Entrevista’, el sistema mandará un email a cada candidato invitándolos a participar en esta entrevista."
+  enter_candidates_helper_3: "También puedes agregar candidatos a través de la página de ‘Manejar Entrevista’, a la cual puedes acceder desde la página principal de tu cuenta."
+  congratulations_on_creation: "Felicidades, has terminado de crear tu nueva entrevista exitosamente."
+
+  #Account, Candidate & Campaign Management
+
+  remove_account: Eliminar Cuenta
+  remove_account_helper_1: "¡Advertencia! Al borrar tu cuenta se eliminarán permanentemente todas las entrevistas que has creado y los candidatos asociados."
+  remove_account_helper_2: "¿Estás seguro que quieres continuar?"
+  yes_delete: "Sí, borrar mi cuenta."
+  account_updated: "Cuenta actualizada exitosamente."
+
+  add_more_candidates: Agregar Más Candidatos
+  add_more_candidates_helper: "Enter the email addresses of the candidates you would like to participate in this interview in the text area below, with each email on a new line, or separated by commas. Note that when you click on the Submit button below, an email will be automatically sent to each of these candidates inviting them to participate in this interview. You can also add candidates to this interview via the interview management page, which you access from your account home."
+
+  choose_new_deadline: "Escoger la Nueva Fecha Límite"
+  close_campaign_confirm: "¿Estás seguro que quieres cerrar esta entrevista?"
+  delete_campaign_confirm: "¿Estás seguro que quieres borrar esta entrevista? Esto eliminará todas las respuestas de los candidatos asociados."
+  accept_confirm: "Are you sure you wish to accept this candidate?"
+  reject_confirm: "Are you sure you wish to reject this candidate?"
+
+  edit_email: Editar Email
+  edit_candidate_email_helper: "Corregir la información del Email del candidato y dar clic en ‘Guardar’."
+  updated_email: El email del candidato fue actualizado exitosamente.
+
+  share_with_colleague: Compartir la Entrevista del Candidato con un Colega
+  share_candidate_helper_1: "Ingresar el Email de la persona con quien quieres compartir esta entrevista:"
+  share_candidate_helper_2: "y/o, escoger un reclutador existente de tu empresa en la parte de  abajo:"
+  select: seleccionar
+  share_interview_submit: Compartir Candidato
+  no_recipients_error: "No ingresaste ningún destinario."
+  candidate_not_completed_interview: "El candidato todavía no ha terminado su entrevista."
+
+  no_candidates: "Actualmente no existe ningun candidato relacionado con esta entrevista. Para agregar candidatos, por favor utilizar el botón de 'Agregar Candidatos'"
+  listen: Escuchar
+
+  #Support
+  issue_email_helper: "Por favor confirma tu email."
+  issue_name_helper: "Por favor ingresa tu nombre completo."
+  related_interview_helper: "Si este problema está relacionado con un candidato específico, selecciónalo de la lista."
+  cand_issue_interview_id_helper: "Puedes encontrar tu ID de Entrevista en el primer email que recibiste con la invitación."
+  issue_content_helper: "Explica el problema con el mayor detalle posible."
+  cand_issue_section_helper: "¿En qué parte de la entrevista estás experimentando problemas?"
+  issue_type_helper: "¿En qué área estás enfrentando el problema?"
+  related_campaign_helper: "Si este problema está relacionado con una entrevista específica, selecciónalo de la lista."
+  related_campaign: Entrevista Relacionada
+  related_interview: Candidato Relacionado
+  technical_support: Soporte Técnico
+  issue_id: "Número de Ticket"
+  interview_section: Interview Section
+  content: content
+  issue_type: Tipo de Problema
+
+  creating_modifying_or_deleting: "Crear, Modificar o Borrar una Entrevista"
+  managing_candidates: "Manejar Candidatos"
+  audio_problems: "Escuchar o bajar una entrevista virtual"
+  sharing_candidates: "Compartir un Candidato"
+  managing_own_account: "Editar o manejar tu cuenta"
+  other: Otro
+
+  create_issue_confirm: "Estaremos en contacto lo más pronto posible para ayudarte con tu problema."
+
+  ref_number: "Número de Ticket"
+  section: "Sección de Entrevista"
+
+
+  # Answers Controller
+  answer_all_questions: "Por favor, responde a todas las preguntas antes de continuar."
+  text_answers_saved: "Tus respuestas fueron guardadas."
+
+  #CampaignQuestions Controller
+  question_added: Question added
+  question_added: Questions added
+
+  #Campaigns Controller
+  campaign_created: "Tu entrevista ha sido creada exitosamente."
+  campaign_removed: "La entrevista fue eliminada exitosamente."
+  deadline_modified: "Fecha Límite Modificada Exitosamente."
+  campaign_closed: "La entrevista fue cerrada exitosamente."
+  campaign_already_closed: "La entrevista ya está cerrada."
+  enter_candidates_error: "Sorry, your campaign is closed. Please re-open interview by changing the deadline before adding candidates."
+
+  #Candidates Controller
+  candidate_deleted: El Candidato fue borrado exitosamente.
+
+  not_completed_interview: Candidate has not yet completed their interview.
+  enter_full_name: "Por favor ingresa tu nombre completo antes de continuar."
+  privacy_error: "Desafortunadamente si no consientes la política de privacidad no podrás comenzar la entrevista. Si no deseas continuar, favor de cerrar esta ventana."
+  ten_digit_error: "El número telefónico debe ser de 10 dígitos, incluyendo la LADA."
+  start_with_1_error: "El número telefónico no puede comenzar con '1'."
+  non_numeric_error: "El número telefónico no puede contener caracteres no numéricos."
+  complete_voice_interview_error: "Por favor asegurarte de terminar la parte verbal de tu entrevista y colgar el teléfono antes de dar clic en ‘Próximo’."
+  share_error: "No puedes compartir el candidato porque todavía no ha terminado su entrevista."
+
+  #References
+
+  reference_1: Referencia 1
+  reference_2: Referencia 2
+  relationship: Relación
+  references: Referencias

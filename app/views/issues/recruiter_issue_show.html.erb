@@ -1,0 +1,85 @@
+<div id="main-content">
+
+      <div id="tech-support-show-wrapper" >
+        <h3><%= t :technical_support %></h3>
+        <br />
+        <div class="form-element">
+        <div class="form-col-left">
+          <%= label_tag(t(:ref_number)) %>
+        </div>
+        <div class="form-col-middle">
+          <%= @issue.id %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+        <div class="form-element">
+        <div class="form-col-left">
+          <%= label_tag("Email") %>
+        </div>
+        <div class="form-col-middle">
+          <%= @issue.email %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+        <div class="form-element">
+        <div class="form-col-left">
+          <%= label_tag(t(:issue_type)) %>
+        </div>
+        <div class="form-col-middle">
+          <%= @issue.recruiter_type %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+        <div class="form-element">
+        <div class="form-col-left">
+          <%= label_tag(t(:issue).capitalize) %>
+        </div>
+        <div class="form-col-middle">
+          <%= @issue.content %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+        <div class="form-element">
+        <div class="form-col-left">
+          <%= label_tag(t(:related_campaign)) %>
+        </div>
+        <div class="form-col-middle">
+          <% if @issue.campaign_id  %>
+            <%= Campaign.find(@issue.campaign_id).send(:combined_display) %>
+          <% else %>
+            <%= "N/A" %>
+          <% end %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+        <div class="form-element">
+        <div class="form-col-left">
+        <%= label_tag(t(:related_interview)) %>
+        </div>
+        <div class="form-col-middle">
+        <% unless @issue.interview_id == "" || @issue.interview_id == nil %>
+          <%= Candidate.find(@issue.interview_id).send(:email) %>
+        <% else %>
+          <%= "N/A" %>
+        <% end %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+      </div><!-- tech support form wrapper -->
+      <br />
+      <% if admin_signed_in? %>
+        <%= link_to "Delete Issue", @issue, method: :delete, class: "button button-small" %>
+      <% end %>
+
+</div> <!-- Main Content -->

@@ -1,0 +1,53 @@
+<div id="main-content">
+
+  <div id="new-organization">
+
+    <h3>New Organization</h3>
+
+    <%= form_for @organization do |f| %>
+
+      <div class="org-field">
+
+        <%= f.label :name, "Name" %>
+
+        <%= f.text_field :name, size: 50 %>
+
+      </div>
+
+      <div class="org-field">
+
+        <%= f.label :account_id, "Account Type" %>
+
+        <%= f.select :account_id, options_from_collection_for_select(@accounts, "id", "internal_id") %>
+
+      </div>
+
+      <div class="org-field">
+        <br />
+        <%= f.submit "Save", class: "button button-small" %>
+
+      </div>
+
+    <% end %>
+  </div>
+
+  <div id="accounts-list">
+    <table>
+      <tr class="header">
+        <td>Internal ID</td>
+        <td>Name</td>
+        <td>Monthly Cost</td>
+        <td>Cand. Cost</td>
+      </tr>
+    <% @accounts.each do |account| %>
+      <tr>
+      <td><%= account.internal_id %></td>
+      <td><%= account.name %></td>
+      <td><%= number_to_currency(account.monthly_price) %></td>
+      <td><%= number_to_currency(account.candidate_price) %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+
+</div>

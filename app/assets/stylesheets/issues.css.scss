@@ -1,0 +1,89 @@
+// Place all the styles related to the issues controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#tech-support-form-wrapper{
+  padding:30px;
+  width:900px;
+  background-color: #F5F5F5;
+}
+
+#tech-support-show-wrapper{
+  padding:30px;
+  width:800px;
+  background-color: #F5F5F5;
+}
+
+#tech-support-form-wrapper label, #tech-support-show-wrapper label{
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#tech-support-form-wrapper input{
+  height:30px;
+}
+
+#tech-support-form-wrapper select#issue_section, #tech-support-form-wrapper select#issue_recruiter_type, #tech-support-form-wrapper select#issue_campaign_id, #tech-support-form-wrapper select#issue_interview_id{
+  height:30px;
+  padding:5px;
+  font-size: 16px;
+}
+
+#tech-support-form-wrapper textarea{
+  padding:3px;
+}
+
+#tech-support-form-wrapper .form-element{
+  margin-top:30px;
+  border-bottom:1px solid #747C7A;
+  padding-bottom: 15px;
+}
+
+#tech-support-show-wrapper .form-element{
+  margin-top:15px;
+  border-bottom:1px solid #747C7A;
+  padding-bottom: 15px;
+}
+
+#tech-support-form-wrapper #form-element-submit{
+  border:none;
+}
+
+#tech-support-form-wrapper .form-col-left{
+  float:left;
+  width:120px;
+}
+
+#tech-support-show-wrapper .form-col-left{
+  float:left;
+  width:230px;
+}
+
+#tech-support-form-wrapper .form-col-middle{
+  float:left;
+  width:430px;
+}
+
+#tech-support-show-wrapper .form-col-middle{
+  float:left;
+  width:340px;
+}
+
+#tech-support-form-wrapper .form-col-right{
+  float:left;
+  width:300px;
+  font-size:15px;
+  font-style:italic;
+}
+
+#tech-support-form-wrapper input#interview-id, #tech-support-form-wrapper input#email-address, #tech-support-form-wrapper input#name{
+  font-size:18px;
+}
+
+#tech-support-form-wrapper select{
+  font-size:16px;
+}
+
+#tech-support-form-wrapper input#form-submit{
+  margin-left:380px;
+  font-size:18px;
+}

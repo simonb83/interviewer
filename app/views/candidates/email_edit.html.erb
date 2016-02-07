@@ -1,0 +1,57 @@
+<div id="main-content">
+
+  <h3><%= t :edit_candidate_email %></h3>
+
+  <%= form_for @candidate, url: { action: 'update_email'} do |f| %>
+
+    <% if @candidate.errors.any? %>
+      <div id="error_explanation">
+          <h2><%= pluralize(@candidate.errors.count, t(:error)) %> <%= t(:error_message) %></h2>
+          <ul>
+          <% @candidate.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+      </div>
+    <% end %>
+
+    <div class="text-question-wrapper">
+        <div class="campaign-step-1-left-col">
+          <%= f.label :email %>
+        </div> <!-- Campaign Step 1 Left Column -->
+
+        <div class="campaign-step-1-middle-col">
+          <%= f.text_field :email %>
+        </div> <!-- Campaign Step 1 Middle Column -->
+
+        <div class="campaign-step-1-right-col">
+          <%= t :edit_candidate_email_helper %>
+        </div> <!-- Campaign Step 1 Right Column -->
+
+        <div class="clear">
+        </div>
+
+      </div><!-- Text Question Wrapper -->
+
+      <div class="text-question-wrapper">
+        <div class="campaign-step-1-left-col">
+          &nbsp;
+        </div> <!-- Campaign Step 1 Left Column -->
+
+        <div class="campaign-step-1-middle-col">
+          &nbsp;
+        </div> <!-- Campaign Step 1 Middle Column -->
+
+        <div class="campaign-step-1-right-col">
+          <%= f.submit t(:save), class: "button" %>
+        </div> <!-- Campaign Step 1 Right Column -->
+
+        <div class="clear">
+        </div>
+
+      </div><!-- Text Question Wrapper -->
+
+
+  <% end %>
+
+</div><!-- Main Content -->

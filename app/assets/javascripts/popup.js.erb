@@ -1,0 +1,20 @@
+$(document).ready(function(){
+
+   $("#jquery_jplayer_1").jPlayer({
+      // ready: function () {
+      //     $(this).jPlayer("setMedia", {
+      //       mp3: "http://robtowns.com/music/blind_willie.mp3"
+      //     });
+      //   },
+       swfPath: "<%= asset_path "Jplayer.swf" %>",
+       supplied: "mp3",
+       wmode: "window"
+   });
+
+   $("a.mp3-listen").click(function(event){
+    event.preventDefault();
+    var href = $(this).attr("href");
+    $("#jquery_jplayer_1").jPlayer("setMedia", {mp3: href })
+    .jPlayer("play");
+    });
+});

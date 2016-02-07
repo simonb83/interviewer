@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+
+    <p><h4>Entrevista Virtual: <%= "#{@candidate.uid}" %></h4></p>
+
+    <p>Hola,</p>
+
+    <p>Te queremos informar que ya se ha pasado la fecha límite para tu entrevista virtual para el puesto de <em><%= @candidate.position_name %></em> en <em><%= @candidate.company_name %></em>, o que se cerró el puesto.</p>
+
+    <p>Desafortunadamente parece que no pudiste terminar tu entrevista, por lo cual no estarás considerado como candidato para la vacante.</p>
+
+    <p>Si crees que estás recibiendo esto por error porque completaste la entrevista, por favor haznos lo saber <%= link_to "aquí", candidate_technical_support_url(@candidate) %>.</p>
+
+    <p>Saludos,
+      <br /><br />
+    El Equipo en Ampleo</p>
+
+  </body>
+
+</html>

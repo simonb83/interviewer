@@ -1,0 +1,42 @@
+
+<div id="candidate-profile-name-capture">
+<div class="candidate-profile-field">
+	<%= f.label t(:name) %><br />
+	<%= f.text_field :name, size: 23 %><br /><br />
+</div>
+
+<div class="candidate-profile-field">
+	<%= f.label t(:surname_paternal) %><br />
+	<%= f.text_field :surname_paternal, size: 23 %>
+</div>
+
+<div class="candidate-profile-field">
+	<%= f.label t(:surname_maternal) %><br />
+	<%= f.text_field :surname_maternal, size: 23 %>
+</div>	
+</div>
+
+<div class="clear"></div>
+
+<div class="candidate-profile-field">
+	<%= f.label t(:gender) %><br />
+	<%= f.select 'gender', options_for_select(%w(Masculino Femenino)), {:include_blank => 'Seleccionar'} %>
+</div>
+
+<div class="candidate-profile-field">
+	<%= f.label t(:estado_civil) %><br />
+	<%= f.select :estado_civil, options_for_select(%w(Soltero Casado)), {:include_blank => 'Seleccionar'} %>
+</div>
+
+<div class="candidate-profile-field">
+	<%= f.label t(:dob) %><br />
+	<%= f.date_select :dob, start_year: Time.now.year-65, end_year: Time.now.year-16, use_short_month: true, include_blank: true %>
+</div>
+
+<div class="candidate-profile-field">
+	<%= f.label t(:desired_salary) %><br />
+	<%= f.select :desired_salary, options_for_select(%w(3,000 5,000 7,000 8,000 10,000 15,000 20,000 25,000 30,000 35,000 40,000 45,000 50,000 60,000 70,000 80,000 90,000 100,000 120,000 140,000 150,000  >150,000)), {:include_blank => 'Seleccionar'} %>&nbsp;&nbsp;Mensual
+</div>
+
+<div class="clear"></div>
+<br />

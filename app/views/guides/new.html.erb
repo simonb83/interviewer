@@ -1,0 +1,17 @@
+<div id="main-content">
+
+  <h3>New Guide</h3>
+
+<%= form_for @guide do |f| %>
+
+  <div class="recruiter-field"><%= f.label :name %><br />
+        <%= f.text_field :name, size:45 %></div>
+
+  <div class="recruiter-field"><%= f.label :subject %><br />
+        <%= f.text_field :subject, size: 45 %></div>
+  <br />
+  <div class="recruiter-field"><%= f.submit "Save", class: "button button-small" %></div>
+
+<% end %>
+
+</div>

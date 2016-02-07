@@ -1,0 +1,9 @@
+<div id="main-content">
+
+<h3>Title</h3>
+
+<div id="guide_body">
+
+</div>
+
+</div>

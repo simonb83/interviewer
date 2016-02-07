@@ -1,0 +1,17 @@
+<div id="main-content">
+
+<div id="recruiter-login" class="forgot-password">
+
+<h3>Renviar instrucciones de desbloqueo</h3>
+
+<%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, id: "email-input" %></div>
+<br />
+  <div><%= f.submit "Enviar", class: "button" %></div>
+<% end %>
+
+</div>
+
+</div>

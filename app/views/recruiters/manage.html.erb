@@ -1,0 +1,38 @@
+<div id="main-content">
+
+        <div id="manage-recruiter">
+
+          <p><h3><%= "Edit #{@recruiter.name}" %></h3></p>
+
+          <%= form_for @recruiter do |f| %>
+
+          <div class="manage-recruiter-field">
+              <%= t(:organization).capitalize %><br />
+              <strong><%= @recruiter.organization.name %></strong>
+          </div><!-- Edit Account Wrapper -->
+
+          <div class="manage-recruiter-field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email %>
+          </div><!-- Edit Account Wrapper -->
+
+          <div class="manage-recruiter-field">
+              <%= f.label :name %><br />
+              <%= f. text_field :name %>
+          </div><!-- Edit Account Wrapper -->
+
+          <div class="manage-recruiter-field">
+              <%= f.submit "Save", class: "button button-small" %>
+              <p>
+                <%= link_to "Delete #{@recruiter.name}", @recruiter, method: :delete, class: "button button-small" %>
+              </p>
+          </div><!-- Edit Account Wrapper -->
+
+          <div class="clear">
+          </div>
+
+          <% end %>
+        </div><!-- Edit Account -->
+
+
+</div> <!-- Main Content -->

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+
+    <p style="margin-left: 40px; font-size: 15px;">
+      Hola <%= @issue.email %>,
+    </p>
+
+    <p style="margin-left: 40px; font-size: 15px;">
+      Nos da gusto informarte que tu problema ha sido resuelto exitosamente y tu ticket de soporte ha sido cerrado.
+    </p>
+
+    <p style="margin-left: 40px; font-size: 15px;">
+      Si continuas con problemas con el servicio por favor responde este mensaje para re-abrir tu ticket.
+    </p>
+
+    <table style="margin-left: 40px; font-size: 15px;">
+      <tr>
+        <td style="width:150px;">Ticket ID:</td>
+        <td style="width:400px; font-weight:bold;">
+          <%=  @issue.id %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Fecha de Creación:</td>
+        <td style="font-weight:bold;">
+          <%=  l @issue.created_at, format: :special %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Estado:</td>
+        <td style="font-weight:bold;">
+          <% if @issue.active %>
+            <%= "Abierto" %>
+          <% else %>
+            <%= "Cerrado" %>
+          <% end %>
+        </td>
+      </tr>
+
+    </table>
+  </body>
+</html>

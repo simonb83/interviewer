@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+
+    <p>Estimado <%= @recipient.name %>,</p>
+
+    <p>Tu colega, <%= @sender.name %>, ha compartido una entrevista contigo para tu consideración.</p>
+
+    <p>Puedes acceder a la entrevista en cualquier momento en la página principal de tu cuenta, en la sección de mensajes: <%= link_to "Ingresar a Cuenta", new_recruiter_session_url %>.</p>
+
+    <p>Si experimentas problemas al acceder a la entrevista, puedes contactarnos <%= link_to "aquí", recruiter_technical_support_url(@recipient) %>.</p>
+
+    <p>Saludos,
+      <br /><br />
+    El Equipo en Ampleo</p>
+
+  </body>
+</html>

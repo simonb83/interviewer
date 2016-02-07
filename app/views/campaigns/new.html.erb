@@ -1,0 +1,198 @@
+<div id="main-content">
+
+      <%= form_for([@recruiter, @campaign]) do |f| %>
+
+      <% if @campaign.errors.any? %>
+        <div id="error_explanation">
+          <%= pluralize(@campaign.errors.count, t(:error)) %><br />
+          <% @campaign.errors.full_messages.each do |msg| %>
+            <%= "- #{msg}" %><br />
+          <% end %>
+          </div>
+      <% end %>
+
+      <h3><%= t :step1 %></h3>
+
+      <div class="text-question-wrapper">
+        <div class="campaign-step-1-left-col">
+          <strong><%= f.label t(:company_name) %></strong>
+        </div> <!-- Campaign Step 1 Left Column -->
+
+        <div class="campaign-step-1-middle-col">
+          <%= f.text_field :company_name, id: "company-name-field" %>
+        </div> <!-- Campaign Step 1 Middle Column -->
+
+        <div class="campaign-step-1-right-col">
+          <%= t :company_name_helper %>
+        </div> <!-- Campaign Step 1 Right Column -->
+
+        <div class="clear">
+        </div>
+
+      </div><!-- Text Question Wrapper -->
+
+      <div class="text-question-wrapper">
+        <div class="campaign-step-1-left-col">
+          <strong><%= f.label t(:position_name) %></strong>
+        </div> <!-- Campaign Step 1 Left Column -->
+
+        <div class="campaign-step-1-middle-col">
+          <%= f.text_field :position_name, id: "position-name-field" %>
+        </div> <!-- Campaign Step 1 Middle Column -->
+
+        <div class="campaign-step-1-right-col">
+          <%= t :position_name_helper %>
+        </div> <!-- Campaign Step 1 Right Column -->
+
+        <div class="clear">
+        </div>
+
+      </div><!-- Text Question Wrapper -->
+
+      <div class="text-question-wrapper">
+        <div class="campaign-step-1-left-col">
+          <strong><%= f.label t(:deadline) %></strong>
+        </div> <!-- Campaign Step 1 Left Column -->
+
+        <div class="campaign-step-1-middle-col">
+          <%= f.date_select :deadline, {order: [:day, :month, :year], start_year: Time.now.year}, {id: "date_select"} %>
+        </div> <!-- Campaign Step 1 Middle Column -->
+
+        <div class="campaign-step-1-right-col">
+          <%= t :deadline_helper %>
+        </div> <!-- Campaign Step 1 Right Column -->
+
+        <div class="clear">
+        </div>
+
+      </div><!-- Text Question Wrapper -->
+
+      <div class="text-question-wrapper">
+        <div class="campaign-step-1-left-col">
+          <strong><%= f.label t(:gateway_questions) %></strong>
+        </div> <!-- Campaign Step 1 Left Column -->
+
+        <div class="campaign-step-1-middle-col">
+          <%= f.radio_button :gateway, true, id: "gateway-yes", default: true %>
+          <%= label :receive_applications_yes, I18n.t(:yes) %>
+          <%= f.radio_button :gateway, false, id: "gateway-no" %>
+          <%= label :receive_applications_no, I18n.t(:no) %>
+        </div> <!-- Campaign Step 1 Middle Column -->
+
+        <div class="campaign-step-1-right-col">
+          <%= t :gateway_helper %>
+        </div> <!-- Campaign Step 1 Right Column -->
+
+        <div class="clear">
+        </div>
+
+      </div><!-- Text Question Wrapper -->
+
+      <div class="text-question-wrapper">
+        <div class="campaign-step-1-left-col">
+          <strong><%= f.label t(:receive_apps?) %></strong>
+        </div> <!-- Campaign Step 1 Left Column -->
+
+        <div class="campaign-step-1-middle-col">
+          <%= f.radio_button :receive_applications, true, id: "receive-apps-yes", default: true %>
+          <%= label :receive_applications_yes, I18n.t(:yes) %>
+          <%= f.radio_button :receive_applications, false, id: "receive-apps-no" %>
+          <%= label :receive_applications_no, I18n.t(:no) %>
+        </div> <!-- Campaign Step 1 Middle Column -->
+
+        <div class="campaign-step-1-right-col">
+          <%= t :receive_applications_helper %>
+          <a href="#" id="show_receive_apps_details">¿Cómo funciona?</a>
+          <div id="auto_receive_new_campaign">
+          <%= render 'auto_receive' %>
+          </div>
+        </div> <!-- Campaign Step 1 Right Column -->
+
+        <div class="clear">
+        </div>
+
+      </div><!-- Text Question Wrapper -->
+
+      <div class="text-question-wrapper">
+        <div class="campaign-step-1-left-col">
+          <strong><%= f.label t(:receive_copy?) %></strong>
+        </div> <!-- Campaign Step 1 Left Column -->
+
+        <div class="campaign-step-1-middle-col">
+          <%= f.radio_button :forward_applications, true, id: "receive-copy-yes" %>
+          <%= label :forward_applications_yes, I18n.t(:yes) %>
+          <%= f.radio_button :forward_applications, false, id: "receive-copy-no" %>
+          <%= label :forward_applications_no, I18n.t(:no) %>
+        </div> <!-- Campaign Step 1 Middle Column -->
+
+        <div class="campaign-step-1-right-col">
+          <%= t :forward_applications_helper %>
+        </div> <!-- Campaign Step 1 Right Column -->
+
+        <div class="clear">
+        </div>
+
+      </div><!-- Text Question Wrapper -->
+
+      <div class="text-question-wrapper">
+        <div class="campaign-step-1-left-col">
+          <strong><%= f.label t(:recommend_friends?) %></strong>
+        </div> <!-- Campaign Step 1 Left Column -->
+
+        <div class="campaign-step-1-middle-col">
+          <%= f.radio_button :recommend_friends, true, id: "recommend-yes", default: true %>
+          <%= label :recommend_friends_yes, I18n.t(:yes) %>
+          <%= f.radio_button :recommend_friends, false, id: "recommend-no" %>
+          <%= label :recommend_friends_no, I18n.t(:no) %>
+        </div> <!-- Campaign Step 1 Middle Column -->
+
+        <div class="campaign-step-1-right-col">
+          <%= t :recommend_friends_helper %>
+        </div> <!-- Campaign Step 1 Right Column -->
+
+        <div class="clear">
+        </div>
+
+      </div><!-- Text Question Wrapper -->
+
+      <div class="text-question-wrapper">
+        <div class="campaign-step-1-left-col">
+          <strong><%= f.label t(:candidate_references?) %></strong>
+        </div> <!-- Campaign Step 1 Left Column -->
+
+        <div class="campaign-step-1-middle-col">
+          <%= f.radio_button :candidate_references, true, id: "references-yes", default: true %>
+          <%= label :candidate_references_yes, I18n.t(:yes) %>
+          <%= f.radio_button :candidate_references, false, id: "references-no" %>
+          <%= label :candidate_references_no, I18n.t(:no) %>
+        </div> <!-- Campaign Step 1 Middle Column -->
+
+        <div class="campaign-step-1-right-col">
+          <%= t :candidate_references_helper %>
+        </div> <!-- Campaign Step 1 Right Column -->
+
+        <div class="clear">
+        </div>
+
+      </div><!-- Text Question Wrapper -->
+
+      <div class="text-question-wrapper">
+        <div class="campaign-step-1-left-col">
+          &nbsp;
+        </div> <!-- Campaign Step 1 Left Column -->
+
+        <div class="campaign-step-1-middle-col">
+          <%= f.submit t(:next), id: "next", class: "button" %>
+        </div> <!-- Campaign Step 1 Middle Column -->
+
+        <div class="campaign-step-1-right-col">
+        </div> <!-- Campaign Step 1 Right Column -->
+
+        <div class="clear">
+        </div>
+
+      </div><!-- Text Question Wrapper -->
+
+      <% end %>
+
+      </div> <!-- Main Content -->

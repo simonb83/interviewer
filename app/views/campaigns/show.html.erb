@@ -1,0 +1,263 @@
+<div id="main-content">
+
+        <div id="campaign-stats">
+
+        <table>
+            <tr>
+              <td class="col1">
+                <%= t :campaign_id %>
+              </td>
+              <td class="col2 dynamic">
+                <%= "##{@campaign.uid}" %>
+              </td>
+              <td class="col3">
+              </td>
+              <td class="col4">
+                <%= t :date_created %>
+              </td>
+              <td class="col5 dynamic">
+                <%= l @campaign.created_at, format: :special_2 %>
+              </td>
+            <tr>
+
+            <tr>
+              <td class="col1">
+                <%= t :company_name %>
+              </td>
+              <td class="col2 dynamic">
+                <%= @campaign.company_name %>
+              </td>
+              <td class="col3">
+              </td>
+              <td class="col4">
+                <%= t :number_candidates %>
+              </td>
+              <td class="col5 dynamic">
+                <%= @campaign.candidates.count %>
+              </td>
+            <tr>
+
+            <tr>
+              <td class="col1">
+                <%= t :position_name %>
+              </td>
+              <td class="col2 dynamic">
+                <%= @campaign.position_name %>
+              </td>
+              <td class="col3">
+              </td>
+              <td class="col4">
+                <%= t :emails_sent %>
+              </td>
+              <td class="col5 dynamic" >
+                <%= @campaign.sent_invitations %>
+              </td>
+            <tr>
+
+            <tr>
+              <td class="col1">
+                <%= t :deadline %>
+              </td>
+              <td class="col2 dynamic">
+                <%= l @campaign.deadline, format: :special_2 %>
+              </td>
+              <td class="col3">
+              </td>
+              <td class="col4">
+                <%= t :interviews_completed %>
+              </td>
+              <td class="col5 dynamic">
+                <%= @campaign.candidates.completed_interview.count %>
+              </td>
+            <tr>
+
+            <tr>
+              <td class="col1">
+                <%= t(:receive_applications) %>
+              </td>
+              <td class="col2">
+                <% if @campaign.receive_applications %>
+                  <%= t :yes %>
+                  &nbsp;&nbsp;&nbsp;
+                  (<%= link_to t(:deny), campaign_update_receive_applications_path(@campaign), method: :put %>)
+                <% else %>
+                <%= t :no %>
+                  &nbsp;&nbsp;&nbsp;
+                  (<%= link_to t(:allow), campaign_update_receive_applications_path(@campaign), method: :put %>)
+                <% end %>
+                &nbsp;&nbsp;&nbsp;
+                <a href="#" id="show_receive_apps_details">¿Cómo funciona?</a>
+              </td>
+              <td class="col3">
+              </td>
+              <td class="col4">
+                <%= t(:accepted_candidates).titleize %>
+              </td>
+              <td class="col5 dynamic" >
+                <%= @campaign.candidates.accepted.count %>
+              </td>
+            <tr>
+
+              <tr>
+                <td class="col1">
+                <%= t(:allow_recommend_friends) %>
+              </td>
+              <td class="col2">
+              <% if @campaign.recommend_friends %>
+                  <%= t :allowed %>
+                  &nbsp;&nbsp;&nbsp;
+                  (<%= link_to t(:deny), campaign_update_recommend_friends_path(@campaign), method: :put, id: "deny_recommend_friends" %>)
+                <% else %>
+                <%= t :not_allowed %>
+                  &nbsp;&nbsp;&nbsp;
+                  (<%= link_to t(:allow), campaign_update_recommend_friends_path(@campaign), method: :put, id: "allow_recommend_friends" %>)
+                <% end %>
+              </td>
+              <td class="col3">
+              </td>
+              <td class="col4">
+                <%= t(:rejected_candidates).titleize %>
+              </td>
+              <td class="col5 dynamic" >
+                <%= @campaign.candidates.rejected.count %>
+              </td>
+            <tr>
+
+              <tr>
+              <td class="col1">
+                <%= t(:allow_candidate_references) %>
+              </td>
+              <td class="col2">
+                <% if @campaign.candidate_references %>
+                  <%= t :yes %>
+                  &nbsp;&nbsp;&nbsp;
+                  (<%= link_to t(:references_not_request), campaign_update_candidate_references_path(@campaign), method: :put %>)
+                <% else %>
+                <%= t :no %>
+                  &nbsp;&nbsp;&nbsp;
+                  (<%= link_to t(:references_request), campaign_update_candidate_references_path(@campaign), method: :put %>)
+                <% end %>
+              </td>
+              <td class="col3">
+              </td>
+              <td class="col4">
+                  <%= t(:status).titleize %>
+              </td>
+              <% if @campaign.active  %>
+                <td class="col5 dynamic green">
+                  <%= t(:status_active).titleize %>
+                </td>
+              <% else %>
+                <td class="col5 dynamic red">
+                  <%= t(:status_closed).titleize %>
+                </td>
+              <% end %>
+            <tr>
+          </table>
+        </div> <!-- Campaign Stats -->
+
+        <div id="auto_receive_show_campaign">
+          <%= render 'auto_receive' %>
+        </div>
+
+        <div id="campaign-actions">
+
+          <%= link_to t(:add_candidates), campaign_enter_more_candidates_path(@campaign), class: "button" %>
+
+          <%= link_to t(:change_deadline), campaign_choose_deadline_path(@campaign), class: "button" %>
+
+          <%= link_to t(:show_questions), campaign_show_questions_path(@campaign), class: "button" %>
+
+          <% if @campaign.active %>
+          <%= link_to t(:close_campaign), campaign_close_path(@campaign), confirm: t(:close_campaign_confirm), method: 'put', class: "button" %>
+          <% end %>
+
+          <%= link_to t(:delete_campaign), [current_recruiter, @campaign], method: :delete, confirm: t(:delete_campaign_confirm), class: "button" %>
+
+        </div> <!-- Campaign Actions -->
+
+        <div id="campaign-detail">
+
+          <table>
+            <tr align="center" class="even">
+              <td class="col1">
+                <strong>Email</strong>
+              </td>
+              <td class="col2">
+                <strong><%= t(:name).titleize %></strong>
+              </td>
+              <td class="col3">
+                <strong><%= t :interview_status %></strong>
+              </td>
+              <td class="col4">
+                <strong><%= t :date_completed %></strong>
+              </td>
+              <td class="col5">
+                <strong><%= t :candidate_status %></strong>
+              </td>
+              <td class="col6">
+                <strong><%= t(:actions).titleize %></strong>
+              </td>
+            </tr>
+            <% if @campaign.candidates.count == 0 %>
+            <tr>
+                <td colspan="7" class="odd">
+                  <%= t :no_candidates %>
+                </td>
+            </tr>
+            <% else %>
+            <% @campaign.candidates.each do |candidate| %>
+              <tr class="<%= cycle("odd","even") %>">
+                <td class="col1">
+                <%= link_to candidate.email, campaign_candidate_path(@campaign, candidate) %>
+              </td>
+              <td class="col2">
+                <%= candidate.candidate_name %>
+              </td>
+              <% if candidate.completed_interview %>
+                <td class="green col3">
+                  <%= t(:completed).titleize %>
+                </td>
+              <% else %>
+                <td class="orange col3">
+                  <%= t(:pending).titleize %>
+                </td>
+              <% end %>
+              <td class="col4">
+                <% if candidate.interview_completed_at %>
+                  <%= l candidate.interview_completed_at, format: :special %>
+                <% end %>
+              </td>
+              <% if candidate.accepted %>
+                <td class="green col5" >
+                <%= t(:accepted).titleize %>
+                </td>
+              <% elsif candidate.rejected %>
+                <td class="red col5" >
+                <%= t(:rejected).titleize %>
+                </td>
+              <% else %>
+                <td class="orange col5" >
+                <%= t(:pending).titleize %>
+                </td>
+              <% end %>
+              <td class="col6">
+                <% if candidate.pending? %>
+                <%= link_to t(:accept).capitalize, campaign_candidate_accept_path(@campaign.id, candidate.id), method: :put, confirm: t(:accept_confirm) %>
+                &nbsp;&nbsp;
+                <%= link_to t(:reject).capitalize, campaign_candidate_reject_path(@campaign.id, candidate.id), method: :put, confirm: t(:reject_confirm) %>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+            <% end %>
+          </table>
+
+
+        </div> <!-- Campaign Detail -->
+
+
+      <div class="clear">
+      </div>
+
+      </div> <!-- Main Content -->

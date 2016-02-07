@@ -1,0 +1,55 @@
+<div id="main-content">
+
+  <%= form_for @campaign, url: { action: 'update_deadline'} do |f| %>
+
+  <% if @campaign.errors.any? %>
+        <div id="error_explanation">
+          <%= pluralize(@campaign.errors.count, t(:error)) %><br />
+          <% @campaign.errors.full_messages.each do |msg| %>
+            <%= "- #{msg}" %><br />
+          <% end %>
+          </div>
+    <% end %>
+    <div id="choose-new-deadline">
+    <h3><%= t(:choose_new_deadline).titleize %></h3>
+    <div class="text-question-wrapper">
+        <div class="campaign-step-1-left-col">
+          <strong><%= f.label "#{t(:deadline)}:" %></strong>
+        </div> <!-- Campaign Step 1 Left Column -->
+
+        <div class="campaign-step-1-middle-col">
+          <%= f.date_select :deadline, {order: [:day, :month, :year], start_year: Time.now.year}, {id: "date_select"} %>
+        </div> <!-- Campaign Step 1 Middle Column -->
+
+        <div class="campaign-step-1-right-col">
+          <%= t :deadline_helper %>
+        </div> <!-- Campaign Step 1 Right Column -->
+
+        <div class="clear">
+        </div>
+
+      </div><!-- Text Question Wrapper -->
+
+      <div class="text-question-wrapper">
+        <div class="campaign-step-1-left-col">
+          &nbsp;
+        </div> <!-- Campaign Step 1 Left Column -->
+
+        <div class="campaign-step-1-middle-col">
+          <%= f.submit t(:cancel), id: "update-deadline-cancel", class: "update-deadline-button button" %>
+          <%= f.submit t(:save), id: "update-deadline-save", class: "update-deadline-button button" %>
+        </div> <!-- Campaign Step 1 Middle Column -->
+
+        <div class="campaign-step-1-right-col">
+        </div> <!-- Campaign Step 1 Right Column -->
+
+        <div class="clear">
+        </div>
+
+      </div><!-- Text Question Wrapper -->
+
+      </div><!--Choose New Deadline -->
+
+  <% end %>
+
+</div><!-- Main Content -->

@@ -1,0 +1,35 @@
+<div id="main-content">
+
+  <div id="new-recruiter">
+      <h3>Create New Account</h3>
+
+      <%= form_for @account do |f| %>
+
+        <div class="recruiter-field"><%= f.label :internal_id, "Internal ID" %><br />
+        <%= f.text_field :internal_id, size:45 %></div>
+
+        <div class="recruiter-field"><%= f.label :name, "Name" %><br />
+        <%= f.text_field :name, size: 45 %></div>
+
+        <div class="recruiter-field"><%= f.label :period, "Period" %><br />
+        <%= f.text_field :period, size: 45 %></div>
+
+        <div class="recruiter-field"><%= f.label :max_users, "Max Users" %><br />
+        <%= f.text_field :max_users, size: 45 %></div>
+
+        <div class="recruiter-field"><%= f.label :voice_questions, "Voice Questions" %><br />
+        <%= f.text_field :voice_questions, size: 45 %></div>
+
+        <div class="recruiter-field"><%= f.label :included_candidates, "Included Candidates" %><br />
+        <%= f.text_field :included_candidates, size: 45 %></div>
+
+        <div class="recruiter-field"><%= f.label :monthly_price, "Monthly Price" %><br />
+        <%= f.text_field :monthly_price, size: 45 %></div>
+
+        <div class="recruiter-field"><%= f.label :candidate_price, "Candidate Price" %><br />
+        <%= f.text_field :candidate_price, size: 45 %></div>
+
+        <div class="recruiter-field"><%= f.submit "Save", class: "button button-small" %></div>
+      <% end %>
+  </div>
+</div>

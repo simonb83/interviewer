@@ -1,0 +1,9 @@
+<div id="main-content">
+
+  <h3><%= t(:step2) %></h3>
+  <%= form_for(@campaign_question, url: { controller: 'campaign_questions', action: 'create'}) do |f| %>
+  <%= f.collection_select(:question_id, Question.all, :id, :content)  %>
+  <%= f.submit  %>
+  <% end %>
+
+</div> <!-- main content -->

@@ -1,0 +1,118 @@
+<div id="main-content">
+
+      <div id="campaign-confirmation">
+
+        <p>
+        <%= t :congratulations_on_creation %>
+        </p>
+
+        <div class="campaign-confirmation-wrapper even">
+
+        <div class="campaign-confirmation-left">
+          <%= "#{t(:campaign_id)}:" %>
+        </div>
+
+        <div class="campaign-confirmation-right">
+          <%= "##{@campaign.uid}" %>
+        </div>
+
+      </div>
+
+      <div class="campaign-confirmation-wrapper odd">
+
+        <div class="campaign-confirmation-left">
+          <%= "#{t(:date_created).titleize}:" %>
+        </div>
+
+        <div class="campaign-confirmation-right">
+          <%= l @campaign.created_at, format: :special %>
+        </div>
+
+      </div>
+
+      <div class="campaign-confirmation-wrapper even">
+
+        <div class="campaign-confirmation-left">
+          <%= "#{t(:position_name)}:" %>
+        </div>
+
+        <div class="campaign-confirmation-right">
+          <%= @campaign.position_name %>
+        </div>
+
+      </div>
+
+      <div class="campaign-confirmation-wrapper odd">
+
+        <div class="campaign-confirmation-left">
+          <%= "#{t(:deadline)}:" %>
+        </div>
+
+        <div class="campaign-confirmation-right">
+          <%= @campaign.deadline %>
+        </div>
+
+      </div>
+
+      <div class="campaign-confirmation-wrapper even">
+
+        <div class="campaign-confirmation-left">
+          <%= "#{t(:number_text_questions)}:" %>
+        </div>
+
+        <div class="campaign-confirmation-right">
+          <%= @campaign.questions.text.count %>
+        </div>
+
+      </div>
+
+      <div class="campaign-confirmation-wrapper odd">
+
+        <div class="campaign-confirmation-left">
+          <%= "#{t(:number_verbal_questions)}:" %>
+        </div>
+
+        <div class="campaign-confirmation-right">
+          <%= @campaign.questions.verbal.count %>
+        </div>
+
+      </div>
+
+      <div class="campaign-confirmation-wrapper even">
+
+        <div class="campaign-confirmation-left">
+          <%= "#{t(:number_candidates)}:" %>
+        </div>
+
+        <div class="campaign-confirmation-right">
+          <%= @campaign.candidates.count %>
+        </div>
+
+      </div>
+
+      <div class="campaign-confirmation-wrapper odd">
+
+        <div class="campaign-confirmation-left">
+          <%= "#{t(:recommend_friends?)}:" %>
+        </div>
+
+        <div class="campaign-confirmation-right">
+          <% if @campaign.recommend_friends %>
+            <%= t :yes %>
+          <% else %>
+            <%= t :no %>
+          <% end %>
+        </div>
+
+      </div>
+
+      <div class="clear">
+      </div>
+
+      <p>
+        Puedes ver el estado y manejar esta entrevista <%=  link_to t(:here), recruiter_campaign_path(@recruiter, @campaign) %>, o a través de la página principal de tu cuenta.
+      </p>
+
+      </div> <!-- Campaign Confirmation -->
+
+</div> <!-- Main Content -->

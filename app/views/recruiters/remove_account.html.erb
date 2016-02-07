@@ -1,0 +1,23 @@
+<div id="main-content">
+
+      <div id="remove-account">
+
+      <h3><%= t :remove_account %></h3>
+
+      <p style="color:red;">
+        <%= t :remove_account_helper_1 %>
+      </p>
+
+      <p style="color:red;">
+        <%= t :remove_account_helper_2 %>
+      </p>
+
+      <p>
+        <%= link_to t(:yes_delete), @recruiter, method: :delete, class: "button" %>
+        <%= link_to t(:cancel), edit_recruiter_path(@recruiter), class: "button" %>
+
+      </p>
+
+      </div> <!-- Remove Account -->
+
+</div> <!-- Main Content -->

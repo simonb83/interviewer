@@ -1,0 +1,96 @@
+<div id="main-content" class="select_questions_gateway">
+
+  <h3><%= t :edit_filter_questions %></h3>
+  <%= form_for @campaign, :url => {:action => "update_filter_options"} do |f| %>
+
+    <div class="text-question-wrapper">
+        <div class="campaign-step-2-left-col">
+          <strong><%= f.label :min_age %></strong>
+        </div> <!-- Campaign Step 2 Left Column -->
+        <div class="campaign-step-2-right-col">
+          <%= f.select :min_age, Array(18..65), {:include_blank => 'Seleccionar'}, class: "dropdown-small" %><br />
+        </div> <!-- Campaign Step 2 Right Column -->
+        <div class="clear"></div>
+    </div><!-- text-question-wrapper -->
+
+    <div class="text-question-wrapper">
+        <div class="campaign-step-2-left-col">
+          <strong><%= f.label :max_age %></strong>
+        </div> <!-- Campaign Step 2 Left Column -->
+        <div class="campaign-step-2-right-col">
+          <%= f.select :max_age, Array(18..65), {:include_blank => 'Seleccionar'}, class: "dropdown-small" %><br />
+        </div> <!-- Campaign Step 2 Right Column -->
+        <div class="clear"></div>
+    </div><!-- text-question-wrapper -->
+
+    <div class="text-question-wrapper">
+        <div class="campaign-step-2-left-col">
+          <strong><%= f.label :gender %></strong>
+        </div> <!-- Campaign Step 2 Left Column -->
+        <div class="campaign-step-2-right-col">
+          <%= f.select :gender, %w(Masculino Femenino), {include_blank: 'Seleccionar'}, class: "dropdown-small" %><br />
+        </div> <!-- Campaign Step 2 Right Column -->
+        <div class="clear"></div>
+    </div><!-- text-question-wrapper -->
+
+    <div class="text-question-wrapper">
+        <div class="campaign-step-2-left-col">
+          <strong><%= f.label :max_salary %></strong>
+        </div> <!-- Campaign Step 2 Left Column -->
+        <div class="campaign-step-2-right-col">
+          <%= f.select :max_salary, %w(3,000 5,000 7,000 8,000 10,000 15,000 20,000 25,000 30,000 35,000 40,000 45,000 50,000 60,000 70,000 80,000 90,000 100,000 120,000 140,000 150,000  >150,000), {:include_blank => 'Seleccionar'}, class: "dropdown-small" %><br />
+        </div> <!-- Campaign Step 2 Right Column -->
+        <div class="clear"></div>
+    </div><!-- text-question-wrapper -->
+
+    <div class="text-question-wrapper">
+        <div class="campaign-step-2-left-col">
+          <strong><%= f.label :civil_status %></strong>
+        </div> <!-- Campaign Step 2 Left Column -->
+        <div class="campaign-step-2-right-col">
+          <%= f.select :civil_status, %w(Soltero Casado), {:include_blank => 'Seleccionar'}, class: "dropdown-small" %><br />
+        </div> <!-- Campaign Step 2 Right Column -->
+        <div class="clear"></div>
+    </div><!-- text-question-wrapper -->
+
+      <% @questions.each_with_index do |question, i| %>
+            <div class="text-question-wrapper">
+              <div class="campaign-step-1A-left-col" id=<%= "question_#{i+1}" %>>
+                <strong><%= "#{t(:question).capitalize} #{i+1}" %></strong>
+              </div>
+              <div class="campaign-step-1A-middle-col">
+                <%= text_area_tag "existing[#{question.id}][content]", question.content, cols: 45, class: "gateway-question", id: "gateway-question-#{i+1}" %>
+                <br />
+                Opción requerida:
+                Sí <%= radio_button_tag "existing[#{question.id}][req]", 'true', question.required_option(@campaign) %>
+                No <%= radio_button_tag "existing[#{question.id}][req]", 'false', !question.required_option(@campaign) %>
+              </div>
+              <div class="campaign-step-1A-right-col">
+                <%= link_to "Eliminar", campaign_remove_question_path(@campaign, question_id: question.id), class: "button button-small eliminate-question", id: "delete_question_#{i+1}", method: :delete %>
+              </div>
+              <div class="clear">
+              </div>
+            </div><!-- Step 4 wrapper -->
+      <% end  %>
+      <div id="end-edit-questions"></div>
+
+    <%= hidden_field_tag "origin", session.delete(:return_to_principal) %>
+
+    <div id="wrapper-for-add-question">
+      <%= link_to t(:additional_question), "#", id: "add-gateway-question-link", class: "button" %>
+    </div>
+
+    <div class="text-question-wrapper">
+      <div class="campaign-step-1A-left-col">&nbsp;</div>
+      <div class="campaign-step-1A-middle-col">&nbsp;</div>
+      <div class="campaign-step-1A-right-col">
+        <%= submit_tag t(:save), class: "step-2-next button" %>
+      </div>
+    </div><!-- text-question-wrapper -->
+
+      <% end %>
+
+<div class="clear">
+</div>
+
+</div> <!-- main content -->

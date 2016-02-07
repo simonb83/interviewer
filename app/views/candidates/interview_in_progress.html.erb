@@ -1,0 +1,33 @@
+<div id="main-content">
+
+      <div id="in-progress">
+      <%= image_tag("telephone.png", id: "telephone") %>
+      <span>Entrevista de Voz en Progreso</span>
+      <p>
+        Una vez que haya terminado tu entrevista y hayas colgado el teléfono, dar clic en ‘Siguiente’ para continuar.
+      </p>
+
+      <p>
+        Si no recibes una llamada dentro de 20 segundos, por favor regresa a la página anterior e intenta otra vez.
+      </p>
+
+      <p class="instructions-reminder">
+        Instrucciones para grabar tus respuestas:
+      </p>
+      <ul class="instructions-reminder">
+          <li>Después de escuchar cada pregunta, tendrás 15 segundos para considerar tu respuesta.</li>
+          <li>Una vez que escuches el tono, puedes comenzar a responder.</li>
+          <li>Cuando terminas tu respuesta, teclea "1" en tu teléfono para continuar a la siguiente pregunta.</li>
+          <li>Hay un límite de tiempo de 8 minutos para cada respuesta.</li>
+          <li>Recuerda que el punto de esta entrevista es descubrir más acerca de ti. En tus respuestas deberás hablar lo más que puedas sobre tus experiencias, logros y contribuciones personales.</li>
+      </ul>
+
+      <%= link_to "Atrás", candidate_call_error_path(@candidate), class: "button" %>
+      <%= link_to "Siguiente", candidate_complete_voice_interview_path(@candidate), class: "button" %>
+      </div>
+
+      <div class="clear" >
+
+      </div>
+
+</div> <!-- Main Content -->

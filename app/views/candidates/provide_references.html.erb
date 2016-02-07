@@ -1,0 +1,95 @@
+<div id="progress">
+        Entrevista Virtual - Proporcionar Referencias Laborales
+</div>
+
+<div id="main-content">
+
+  <div id="provide-references">
+
+    <p>
+      Por favor ingresa los detalles de dos personas que podrían proporcionar una referencia laboral acerca de ti.<br /><br />
+
+      En la parte de "relación", explica en qué medida esta persona te conoce (ej., jefe anterior, colega, empleado directo etc.), en cuál empresa, y por cuánto tiempo trabajaron juntos.
+    </p>
+
+    <%= form_tag(candidate_add_references_path(@candidate), method: :post) do %>
+
+    <div id="reference-1">
+
+      <strong><%= t :reference_1 %></strong><br /><br />
+
+    <div class="references-field">
+      <div class="references-left">
+        <%= label_tag t(:name) %>
+      </div>
+      <div class="references-right">
+        <%= text_field_tag 'reference_1_name', nil, size: 30 %>
+      </div>
+    </div>
+
+    <div class="references-field">
+      <div class="references-left">
+        <%= label_tag 'Email' %>
+      </div>
+      <div class="references-right">
+        <%= text_field_tag 'reference_1_email', nil, size: 30 %>
+      </div>
+    </div>
+
+    <div class="references-field">
+      <div class="references-left">
+        <%= label_tag t(:relationship) %>
+      </div>
+      <div class="references-right">
+        <%= text_area_tag 'reference_1_relationship', nil, cols: 29 %>
+      </div>
+    </div>
+
+    </div> <!-- Reference 1 -->
+
+    <div id="reference-2">
+
+      <strong><%= t :reference_2 %></strong><br /><br />
+
+    <div class="references-field">
+      <div class="references-left">
+        <%= label_tag t(:name) %>
+      </div>
+      <div class="references-right">
+        <%= text_field_tag 'reference_2_name', nil, size: 30 %>
+      </div>
+    </div>
+
+    <div class="references-field">
+      <div class="references-left">
+        <%= label_tag 'Email' %>
+      </div>
+      <div class="references-right">
+        <%= text_field_tag 'reference_2_email', nil, size: 30 %>
+      </div>
+    </div>
+
+    <div class="references-field">
+      <div class="references-left">
+        <%= label_tag t(:relationship) %>
+      </div>
+      <div class="references-right">
+        <%= text_area_tag 'reference_2_relationship', nil, cols: 29 %>
+      </div>
+    </div>
+
+    </div> <!-- Reference 2 -->
+
+    <div class="references-field">
+      <div class="references-left">
+        &nbsp;
+      </div>
+      <div class="references-right">
+        <%= submit_tag 'Guardar', class: "button", id: "references-submit" %>
+      </div>
+    </div>
+
+    <% end %>
+  </div>
+
+</div> <!-- Main Content -->

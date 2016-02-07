@@ -1,0 +1,67 @@
+<div id="main-content">
+
+      <div id="tech-support-show-wrapper" >
+        <h3><%= t :technical_support %></h3>
+        <br />
+        <div class="form-element">
+        <div class="form-col-left">
+          <%= label_tag(t(:ref_number)) %>
+        </div>
+        <div class="form-col-middle">
+          <%= @issue.id %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+        <div class="form-element">
+        <div class="form-col-left">
+          <%= label_tag(t(:name).capitalize) %>
+        </div>
+        <div class="form-col-middle">
+          <%= @issue.name %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+        <div class="form-element">
+        <div class="form-col-left">
+          <%= label_tag("Email") %>
+        </div>
+        <div class="form-col-middle">
+          <%= @issue.email %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+        <div class="form-element">
+        <div class="form-col-left">
+          <%= label_tag(t(:interview_id)) %>
+        </div>
+        <div class="form-col-middle">
+          <%= @issue.interview_id %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+        <div class="form-element">
+        <div class="form-col-left">
+        <%= label_tag(t(:issue).capitalize) %>
+        </div>
+        <div class="form-col-middle">
+        <%= @issue.content %>
+        </div>
+        <div class="clear">
+        </div>
+        </div> <!-- form element -->
+
+      </div><!-- tech support form wrapper -->
+      <br />
+      <% if admin_signed_in? %>
+        <%= link_to "Delete Issue", @issue, method: :delete, class: "button button-small" %>
+      <% end %>
+
+</div> <!-- Main Content -->

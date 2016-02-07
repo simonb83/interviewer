@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+
+    <p>Hola,</p>
+
+    <p>Tu colega, <%= @sender.name %>, quisiera compartir la siguiente entrevista contigo para tu consideración:
+      <br /><br />
+    <strong>Entrevista: <%= @candidate.uid %></strong>
+    </p>
+
+    <p>Puedes acceder a la entrevista a través de esta enlace: <%= link_to "#{@candidate.uid}", candidate_shared_external_url(@candidate) %></p>
+
+    <p>Si experimentas problemas al acceder a la entrevista, puedes contactarnos <%= link_to "aquí", technical_support_url %>.</p>
+
+    <p>Saludos,
+      <br /><br />
+    El Equipo en Ampleo</p>
+
+  </body>
+</html>

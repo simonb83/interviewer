@@ -1,0 +1,25 @@
+<div id="main-content">
+
+  <div id="category-form">
+
+    <% if @edit %>
+      <h3><%= "Edit #{@category.name}" %></h3>
+    <% else %>
+      <h3>New Category</h3>
+    <% end %>
+
+      <%= form_for @category do |f| %>
+
+      <div><%=  f.label :name, "Name" %><br />
+        <%= f.text_field :name, size:40 %>
+      </div>
+
+      <div>
+        <p>
+        <%= f.submit "Save", class: "button button-small" %>
+        </p>
+      </div>
+
+      <% end %>
+  </div>
+</div>

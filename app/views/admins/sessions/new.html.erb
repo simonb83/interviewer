@@ -1,0 +1,39 @@
+<div id="main-content">
+
+<div id="recruiter-login">
+
+<h3><%= t(:recruiter_sign_in) %></h3>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
+    <div class="login-form-element">
+            <div class="login-form-left-col">
+              <%= f.label :email %>
+            </div>
+            <div class="login-form-right-col">
+              <%= f.email_field :email, :id => "email-input" %>
+            </div>
+    </div>
+
+    <div class="login-form-element">
+            <div class="login-form-left-col">
+              <%= f.label :password %>
+            </div>
+            <div class="login-form-right-col">
+              <%= f.password_field :password, :id => "password-input" %>
+            </div>
+    </div>
+
+    <div class="login-form-element">
+            <div class="login-form-left-col">
+            </div>
+            <div class="login-form-right-col">
+              <%= f.submit "Enviar" , :id => "form-submit" %>
+                <div class="clear"></div>
+                <p id="forgot-password"><%= render "recruiters/shared/links" %></p>
+            </div>
+    </div>
+  <div class="clear"></div>
+  <% end %>
+</div> <!-- Recruiter Login -->
+</div> <!-- Main Content -->

@@ -1,0 +1,28 @@
+// Place all the styles related to the guides controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#guide_body{
+  font-size: 14px;
+  margin-left: 30px;
+  width: 90%;
+  padding:20px;
+  background-color: white;
+  border: 1px solid rgb(219, 219, 219);
+}
+
+#guide_body img{
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.guide-email{
+  font-style: italic;
+  color: green;
+}
+
+.guide-warning{
+  color: red;
+  font-weight: bold;
+}

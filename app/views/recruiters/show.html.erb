@@ -1,0 +1,95 @@
+<div id="main-content">
+
+<% if @first_time %>
+  <div id="first_time">
+    Comienzo Rápido:
+    <div class="button button-small">
+      <%= link_to 'Crear una Entrevista', new_recruiter_campaign_path(@recruiter) %>
+    </div><!-- Create Campaign Button -->
+    <br />
+    o, leer más acerca de como aprovechar el plataforma:<br />
+      <%= link_to 'Ya tengo una lista de candidatos', '/guides/65' %>
+      <span><%= link_to 'Todavía no tengo candidatos', '/guides/65' %></span>
+  </div>
+<% end %>
+
+
+<div id="campaigns">
+<h3><%= t(:campaigns).capitalize %></h3>
+
+<table>
+        <tr class="odd-top">
+          <td colspan="5">
+            <strong><%= "#{t(:total).capitalize}:" %></strong>
+            <%= @recruiter.campaigns.count %>&nbsp;&nbsp;
+            <strong><%= "#{t(:active).capitalize}:" %></strong>
+            <%= @recruiter.campaigns.active.count %>&nbsp;&nbsp;
+            <strong><%= "#{t(:closed).capitalize}:" %></strong>
+            <%= @recruiter.campaigns.closed.count %>&nbsp;&nbsp;
+          </td>
+        </tr>
+         <% if @recruiter.campaigns.count == 0 %>
+          <tr class="odd">
+            <td colspan="5" align="center">
+            <span class="empty"><%= t :no_campaigns %></span>
+            </td>
+          </tr>
+        <% else %>
+          <tr class="odd">
+          <td><strong><%= t(:campaign_id) %></strong></td>
+          <td><strong><%= t(:company) %></strong></td>
+          <td><strong><%= t(:position_name).titleize %></strong></td>
+          <td><strong><%= t(:date_created).titleize %></strong></td>
+          <td><strong><%= t(:status).titleize %></strong></td>
+          </tr>
+          <% @recruiter.campaigns.each do |campaign| %>
+            <tr class="<%= cycle("even","odd") %>">
+            <td><%= link_to "##{campaign.uid}", recruiter_campaign_path(@recruiter, campaign) %></td>
+            <td><%= truncate(campaign.company_name, length: 17) %></td>
+            <td><%= campaign.position_name %></td>
+            <td><%= l campaign.created_at, format: :special %></td>
+            <td><%= campaign.status.capitalize %></td>
+            </tr>
+          <% end %>
+        <% end %>
+
+      </table>
+
+      <div id="create-campaign" class="button">
+      <%= link_to t(:new_campaign).titleize, new_recruiter_campaign_path(@recruiter) %>
+      </div><!-- Create Campaign Button -->
+
+</div><!-- Campaigns -->
+
+<div id="inbox">
+  <h3><%= t(:messages).capitalize %></h3>
+
+  <table>
+        <tr class="odd-top">
+          <td><strong><%= t(:sender).capitalize %></strong></td>
+          <td><strong><%= t(:interview_id) %></strong></td>
+          <td></td>
+        </tr>
+        <% if @recruiter.received_messages.count == 0 %>
+          <tr class="even">
+            <td colspan="3" align="center">
+              <span class="empty"><%= t :no_messages %></span>
+            </td>
+          </tr>
+        <% else %>
+          <% @recruiter.received_messages.each do |received| %>
+          <tr class="<%= cycle("even","odd") %>">
+            <td><%= received.message.sender_name %></td>
+            <td><%= link_to received.message.interview_id, candidate_shared_external_path(received.message.message_candidate) %></td>
+            <td><%= link_to t(:delete), recruiter_message_path(received.message), method: :delete, class: "message-action" %>
+          </tr>
+          <% end %>
+        <% end %>
+    </table>
+
+</div><!-- Inbox -->
+
+<div class="clear">
+</div>
+
+</div><!-- Main Content -->

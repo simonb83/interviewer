@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# one:
+#   email: MyString 1
+#   campaign_id: 3
+#   completed_interview: false
+#   completed_text_interview: false
+#   completed_verbal_interview: false
+#   uid: ABCD
+
+# two:
+#   email: MyString 2
+#   campaign_id: 3
+#   completed_interview: true
+#   completed_verbal_interview: true
+#   completed_text_interview: true
+#   uid: ABCDE
+
+# three:
+#   email: MyString 3
+#   campaign_id: 4
+#   completed_interview: false
+#   completed_text_interview: false
+#   completed_verbal_interview: false
+#   uid: ABCDEF

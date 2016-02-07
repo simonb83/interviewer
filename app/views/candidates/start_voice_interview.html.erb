@@ -1,0 +1,70 @@
+<div id="progress">
+        Entrevista Virtual Paso 2 - Entrevista de Voz
+      </div>
+
+      <div id="main-content">
+        <div id="start-interview-content">
+
+      <div id="process-description">
+      En este momento comenzará la parte de voz de tu entrevista.
+      <strong style="color:red;">Por favor revisa estas instrucciones a detalle antes de continuar.</strong>
+
+      <ul>
+        <li>
+          Tendrás que contestar un total de <%= pluralize(@campaign.questions.verbal.count, 'pregunta', 'preguntas') %> , y después de cada pregunta tendrás la oportunidad de grabar tu respuesta.
+        </li>
+        <li>
+          Una vez que hayas terminado cada respuesta, teclea "1" en tu teléfono para continuar a la siguiente pregunta.
+        </li>
+        <li>
+          Hay un límite de tiempo de 8 minutos para cada respuesta.
+        </li>
+        <li>
+          Después de escuchar la pregunta tendrás 15 segundos para considerar tu respuesta. Una vez que escuches el tono, puedes comenzar a responder.
+        </li>
+        <li>
+          Recuerda que el punto de esta entrevista es descubrir más acerca de ti. En tus respuestas deberás hablar lo más que puedas sobre tus experiencias, logros y contribuciones personales.
+        </li>
+      </ul>
+
+      <p>
+        Si experimentas problemas o dificultades en cualquier momento, puedes contactarnos <%= link_to 'aquí', candidate_technical_support_path(@candidate) %>. La parte verbal de tu entrevista será marcada como completa cuando cuelges el teléfono.
+      </p>
+
+      <p>
+      Antes de continuar, asegurarte de tener acceso a un teléfono de línea fija (no celular).
+      </p>
+
+      <% if @candidate.valid_cel? %>
+
+      <p>
+        Cuando estás listo para comenzar, haz clic en el botón de "Llamarme", y te marcaremos a tu celular:
+      </p>
+
+      <p>
+        <span id="candidate-cel">Celular: <%= @candidate.cel %></span>
+      </p>
+
+      <p>Alternativamente, ingresa tu número telefónico (fijo) incluyendo la lada en el campo abajo:</p>
+
+      <% else %>
+
+      <p>
+      Para empezar, ingresa tu número telefónico incluyendo la lada, y haz clic en el botón de "Llamarme".
+      </p>
+      <br />
+
+      <% end %>
+
+      <div id="call-me">
+        <%= form_for @candidate, url: candidate_add_phone_path(@candidate), method: :post do |f| %>
+        <%= f.label :phone_number %>
+        <%= f.text_field :phone_number, id: "phone_number" %>
+        &nbsp;&nbsp;&nbsp;
+        <%= f.submit "Llamarme", id: "call-button", class: "button", confirm: "Recuerda dar respuestas completas a cada pregunta. Respuestas que son demasiadas cortas o que sólo consisten en unas pocas palabras disminuirán tus posibilidades de ser seleccionado." %>
+        <% end %>
+      </div>
+
+          </div> <!-- Process Description -->
+        </div> <!--Start interview content -->
+      </div> <!-- Main Content -->

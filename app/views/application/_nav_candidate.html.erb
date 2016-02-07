@@ -1,0 +1,10 @@
+<div id="header-col-left">
+    <%= @candidate.position_name %>, <%= @candidate.company_name %><br />
+    <%= @candidate.uid %>
+    <% if @candidate.name %>
+    <%= ", #{@candidate} " %>
+  <% end %>
+</div>
+<div id="header-col-right">
+  <%= link_to t(:home), root_path %>&nbsp;&nbsp;
+</div>

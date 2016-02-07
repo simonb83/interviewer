@@ -1,0 +1,27 @@
+<div id="main-content">
+
+  <h3><%= t :step5 %></h3>
+
+  <div id="add-emails">
+      <p><%= t :enter_candidates_helper_1 %></p>
+      <p><%= t :enter_candidates_helper_2 %></p>
+      <p><%= t :enter_candidates_helper_3 %></p>
+      <% if @campaign.receive_applications %>
+      <span id="toggle_auto_receive_apps"><a href="#">Automaticamente Recibir Aplicaciones</a></span>
+        <%= render 'auto_receive' %>
+      <% end %>
+
+      <%= form_tag controller: "candidates", action: "add_candidates", method: "post" do %>
+      <br /><br />
+      <%= text_area(Campaign, :candidate_list, cols: 60, rows: 8) %>
+      <br /><br />
+
+      <%= submit_tag t(:create_campaign), id: "create-campaign", class: "button" %>
+      <% end %>
+
+      <div class="clear">
+      </div>
+
+  </div>
+
+</div><!-- main content -->

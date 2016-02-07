@@ -1,0 +1,32 @@
+<div id="main-content">
+
+  <div id="new-recruiter">
+
+        <div class="recruiter-field"><strong><%= "Internal ID" %></strong><br />
+        <%= @account.internal_id %></div>
+
+        <div class="recruiter-field"><strong><%= "Name" %></strong><br />
+        <%= @account.name %></div>
+
+        <div class="recruiter-field"><strong><%= "Period" %></strong><br />
+        <%= @account.period %></div>
+
+        <div class="recruiter-field"><strong><%= "Max Users" %></strong><br />
+        <%= @account.max_users %></div>
+
+        <div class="recruiter-field"><strong><%= "Voice Questions" %></strong><br />
+        <%= @account.voice_questions %></div>
+
+        <div class="recruiter-field"><strong><%= "Included Candidates" %></strong><br />
+        <%= @account.included_candidates %></div>
+
+        <div class="recruiter-field"><strong><%= "Monthly Price" %></strong><br />
+        <%= @account.monthly_price %></div>
+
+        <div class="recruiter-field"><strong><%= "Candidate Price" %></strong><br />
+        <%= @account.candidate_price %></div>
+
+        <%= link_to "Remove Account", @account, method: :delete %>
+
+  </div>
+</div>

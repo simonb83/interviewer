@@ -1,0 +1,291 @@
+<div id="main-content">
+
+        <div id="candidate-stats">
+          <table>
+            <tr>
+              <td class="col1">
+                <%= t :campaign_id %>
+              </td>
+              <td class="col2 dynamic">
+                <%= "##{@campaign.uid}" %>
+              </td>
+              <td class="col3">
+              </td>
+              <td class="col4">
+                <%= t :company_name %>
+              </td>
+              <td class="col5 dynamic">
+                <%= @campaign.company_name %>
+              </td>
+            <tr>
+
+            <tr>
+              <td class="col1">
+                <%= t :interview_id %>
+              </td>
+              <td class="col2 dynamic">
+                <%= @candidate.uid %>
+              </td>
+              <td class="col3">
+              </td>
+              <td class="col4">
+                <%= t :position_name %>
+              </td>
+              <td class="col5 dynamic">
+                <%= @campaign.position_name %>
+              </td>
+            <tr>
+
+            <tr>
+              <td class="col1">
+                <%= t :candidate_name %>
+              </td>
+              <td class="col2 dynamic">
+                <%= @candidate.candidate_name %>
+              </td>
+              <td class="col3">
+              </td>
+              <td class="col4">
+                <%= t :interview_status %>
+              </td>
+              <% if @candidate.completed_interview %>
+                <td class="col5 green dynamic" >
+                  <%= t(:completed).capitalize %>
+                </td>
+              <% else  %>
+                <td class="col5 orange dynamic" >
+                  <%= t(:pending).capitalize %>
+                </td>
+              <% end %>
+            <tr>
+
+            <tr>
+              <td class="col1">
+                <%= t :candidate_email %>
+              </td>
+              <td class="col2 dynamic">
+                <%= @candidate.email %>
+              </td>
+              <td class="col3">
+              </td>
+              <td class="col4">
+                <%= t :candidate_status %>
+              </td>
+              <% if @candidate.accepted %>
+                <td class="col5 green dynamic" >
+                  <%= t(:accepted).capitalize %>
+                </td>
+              <% elsif @candidate.rejected %>
+                <td class="col5 red dynamic" >
+                  <%= t(:rejected).capitalize %>
+                </td>
+              <% else %>
+                <td class="col5 orange dynamic" >
+                  <%= t(:pending).capitalize %>
+                </td>
+              <% end %>
+            <tr>
+
+            <tr>
+              <td class="col1">
+                <%= t :date_completed %>
+              </td>
+              <td class="col2 dynamic">
+                <% if @candidate.interview_completed_at %>
+                  <%= l @candidate.interview_completed_at, format: :special %>
+                <% end %>
+              </td>
+              <td class="col3">
+              </td>
+            <tr>
+          </table>
+        </div> <!-- Candidate Stats -->
+
+        <div id="candidate-actions">
+
+          <%= link_to t(:edit_email), candidate_email_edit_path(@candidate), class: "button" %>
+
+          <%= link_to t(:share_interview), recruiter_candidate_share_path(@recruiter, @candidate), class: "button" %>
+
+          <% if @candidate.pending? %>
+
+          <%= link_to t(:accept_candidate), campaign_candidate_accept_path(@campaign.id, @candidate.id), method: :put, confirm: "¿Estás seguro que quieres pasar a este candidato a la siguiente fase?", class: "button" %>
+
+          <%= link_to t(:reject_candidate), campaign_candidate_reject_path(@campaign.id, @candidate.id), method: :put, confirm: "¿Estás seguro que quieres rechazar a este candidato?", class: "button" %>
+
+          <% end %>
+
+          <%= link_to t(:delete_candidate), campaign_candidate_path(@campaign, @candidate), method: :delete, confirm: "¿Estás seguro que quieres borrar esta entrevista? Esto eliminará todas las respuestas de candidatos asociados.", class: "button" %>
+
+        </div> <!-- Campaign Actions -->
+
+        <% if @history.size > 0 %>
+          <div id="candidate-history">
+            <span>Historia del Candidato</span>
+            <div id="candidate-history-detail">
+                <% @history.each do |position| %>
+                  <%= position.interview_history_detail %><br />
+                <% end %>
+            </div><!-- Candidate History Detail -->
+          </div><!-- Candidate History -->
+        <% end %>
+
+        <div id="candidate-detail">
+
+          <div id="candidate-detail-left">
+            <span class="candidate-detail-section-header"><%= t :text_interview %></span>
+            <table>
+              <% unless @candidate.completed_interview %>
+                <tr>
+                  <td colspan="2">
+                    <em><%= t :candidate_not_completed_interview %></em>
+                  </td>
+                </tr>
+              <% else %>
+              <% i = 0 %>
+              <% @candidate.campaign.questions.text.each do |q| %>
+                <% i += 1 %>
+                <tr class="question-content">
+                  <td class = "col1">
+                    <strong><%= "#{t(:question).capitalize} #{i}" %></strong>
+                  </td>
+                  <td class="col2">
+                    <em><%= q.content %></em>
+                  </td>
+                </tr>
+                <tr class="answer-content">
+                  <td></td>
+                  <td>
+                    <%= q.candidate_answer(@candidate.id).content %>
+                  </td>
+                </tr>
+              <% end %>
+              <% end %>
+            </table>
+
+          </div><!-- Candidate Detail Left -->
+
+          <div id="candidate-detail-right">
+            <span class="candidate-detail-section-header"><%= t :verbal_interview %></span>
+            <table>
+            <% unless @candidate.completed_interview %>
+              <tr>
+                <td colspan="2">
+                  <em><%= t :candidate_not_completed_interview %></em>
+                </td>
+              </tr>
+            <% else %>
+              <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+                      <div id="jp_container_1" class="jp-audio">
+                        <div class="jp-type-single">
+                          <div class="jp-gui jp-interface">
+                            <ul class="jp-controls">
+                              <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+                              <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+                              <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+                              <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+                              <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+                              <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+                            </ul>
+                            <div class="jp-progress">
+                              <div class="jp-seek-bar">
+                                <div class="jp-play-bar"></div>
+                              </div>
+                            </div>
+                            <div class="jp-volume-bar">
+                              <div class="jp-volume-bar-value"></div>
+                            </div>
+                            <div class="jp-time-holder">
+                              <div class="jp-current-time"></div>
+                              <div class="jp-duration"></div>
+                            </div>
+                          </div>
+                          <div class="jp-no-solution">
+                            <span>Update Required</span>
+                            To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                          </div>
+                    </div>
+                </div>
+              <% i = 0 %>
+              <% @candidate.campaign.questions.verbal.each do |q| %>
+              <% i += 1 %>
+              <tr class="question-content">
+                <td class = "col1">
+                  <strong><%= "#{t(:question).capitalize} #{i}" %></strong>
+                </td>
+                <td class="col2">
+                  <em><%= q.content %></em>
+                </td>
+              </tr>
+              <tr class="answer-content">
+                <td></td>
+                <td>
+                  <% if q.candidate_answer(@candidate.id) %>
+                    <%= link_to t(:listen), q.candidate_answer(@candidate.id).mp3_url, class: "button button-small mp3-listen", id: "voice-#{q.id}"%>
+                    <%= link_to 'Enlace directo', q.candidate_answer(@candidate.id).mp3_url, class: "button button-small" %>
+                  <% else %>
+                    <span class="mp3-error"><%= 'Al parecer hubo un error. Por favor contacta al administrador del sistema' %></span>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+            <% end %>
+            </table>
+
+            <% if @candidate.campaign.candidate_references %>
+            <div id="candidate-references">
+              <span class="candidate-detail-section-header"><%= t :references %></span>
+              <div id="list">
+                <% @candidate.references.each do |ref| %>
+                <div class="each-reference">
+                  <div class="references-field">
+                    <div class="references-left">
+                     <%= label_tag t(:name) %>
+                    </div>
+                    <div class="references-right">
+                      <%= ref.name %>
+                    </div>
+                  </div>
+
+                  <div class="references-field">
+                    <div class="references-left">
+                      <%= label_tag 'Email' %>
+                    </div>
+                    <div class="references-right">
+                      <%= ref.email %>
+                    </div>
+                  </div>
+
+                  <div class="references-field">
+                    <div class="references-left">
+                      <%= label_tag t(:relationship) %>
+                    </div>
+                    <div class="references-right">
+                      <%= ref.relationship %>
+                    </div>
+                  </div>
+                </div> <!-- each reference -->
+                <% end %>
+              </div>
+            </div>
+            <% end %>
+
+            <% if @candidate.campaign.recommend_friends %>
+            <div id="recommended-friends">
+              <span class="candidate-detail-section-header"><%= t :recommended_friends %></span>
+              <% if @candidate.friends.count == 0 %>
+              <div id="not-recommended"><em><%= t :not_recommended %></em></div>
+              <% else %>
+              <div id="list">
+                <%= @candidate.friends.map{ |friend| friend.email }.join(", ") %>
+              </div>
+              <% end %>
+            </div>
+            <% end %>
+          </div><!-- Candidate Detail Right -->
+
+        <div class="clear"></div>
+
+        </div> <!-- Candidate Detail -->
+
+      </div> <!-- Main Content -->

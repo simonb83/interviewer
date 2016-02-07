@@ -1,0 +1,41 @@
+<div id="progress">
+        Entrevista Virtual - Preguntas Básicas
+</div>
+
+<div id="main-content">
+  <div id="candidate-text-interview">
+
+    <%= form_tag candidate_add_answers_path(@candidate), method: "post" do %>
+    <% answers = {} %>
+    <% i = 0 %>
+    <% @candidate.campaign.questions.filter.each do |question|  %>
+
+     <% i += 1 %>
+      <div class="question">
+
+      <div class="questions-left-col">
+      <%= "#{t(:question).capitalize} #{i}" %>
+      </div>
+
+      <div class="questions-right-col">
+      <%= question.content %><br /><br />
+      <%= select_tag "answers[#{question.id}]", "<option>Sí</option><option>No</option>".html_safe, prompt: 'Seleccionar', id: "answers[#{question.id}]" %>
+      </div>
+
+      </div><!-- question wrapper -->
+      <% end %>
+      <div class="question" id="answer-submit">
+
+      <div class="questions-left-col">
+      </div>
+
+      <div class="questions-right-col">
+        <%= submit_tag "Continuar", confirm: "¿Estás seguro que quieres guardar tus respuestas? Una vez que lo hayas hecho, no podrás cambiarlas.", class: "button" %>
+      </div>
+
+      </div><!-- question wrapper -->
+      <div class="clear">
+      </div>
+      <% end %>
+  </div><!-- candidate-text-interview -->
+</div> <!-- Main Content -->

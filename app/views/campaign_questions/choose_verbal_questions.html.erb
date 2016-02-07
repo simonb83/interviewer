@@ -1,0 +1,38 @@
+<%= javascript_tag do %>
+  window.qType = 'verbal';
+<% end %>
+
+<div id="main-content" class="select_questions_1">
+
+  <h3><%= t(:step3) %></h3>
+  <p><%= t :step3_helper %></p>
+  <%= form_tag controller: "campaign_questions", action: "create_verbal_questions", method: "post" do %>
+    <% max = @max_questions-1 %>
+    <% for i in 0..max %>
+      <div class="text-question-wrapper">
+        <div class="campaign-step-2-left-col">
+          <strong><%= "#{t(:question).capitalize} #{i+1}:" %></strong>
+        </div> <!-- Campaign Step 2 Left Column -->
+        <div class="campaign-step-2-right-col">
+          <%= collection_select(Integer, i, Category.all, :id, :name, {include_blank: t(:category_select).titleize}, {class: "category-select", id: "category-select-#{i}"})  %>
+          &nbsp;&nbsp;&nbsp;
+          <%= collection_select(Integer, i, {}, :id, :name, {include_blank: t(:question_select).titleize}, {class: "question-select", id: "question-select-#{i}"})  %>
+        </div> <!-- Campaign Step 2 Right Column -->
+      </div><!-- text-question-wrapper -->
+    <% end %>
+
+      <div class="text-question-wrapper">
+        <div class="campaign-step-2-left-col">
+          &nbsp;
+        </div> <!-- Campaign Step 2 Left Column -->
+        <div class="campaign-step-2-right-col">
+          <%= submit_tag t(:next), class: "step-2-next button" %>
+        </div> <!-- Campaign Step 2 Right Column -->
+      </div><!-- text-question-wrapper -->
+<% end %>
+
+<div class="clear">
+</div>
+
+
+</div> <!-- main content -->

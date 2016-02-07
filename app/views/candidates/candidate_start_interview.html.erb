@@ -1,0 +1,54 @@
+<div id="main-content">
+  <div id="start-interview-content">
+      <p>
+        Bienvenido a tu entrevista virtual para el puesto de <span class="dynamic-text"><%= @candidate.position_name %></span> en <span class="dynamic-text"><%= @candidate.company_name %></span>.
+      </p>
+
+      <p>
+        Esta entrevista consistirá de una mezcla de preguntas escritas y de voz, y deberá durar aproximadamente de 30 a 45 minutos.
+      </p>
+
+      <p>
+        La parte de voz se llevará a cabo por teléfono, entonces antes de comenzar, por favor asegurarte de tener acceso a un teléfono de línea fija (no celular).
+      </p>
+
+      <p>
+        Si experimentas dificultades en cualquier momento, puedes contactarnos <%= link_to 'aquí', candidate_technical_support_path(@candidate) %>.
+        Puedes revisar las preguntas frecuentes acerca de este proceso de entrevista <%= link_to "aquí", page_path("FAQ_candidate") %>.
+      </p>
+
+      <p>
+        Cuando estés listo, favor de confirmar tu nombre completo y dar clic en el botón de "Iniciar" para comenzar la entrevista.
+      </p>
+
+      <div id="name-capture">
+        <%= form_for @candidate, url: candidate_interview_step_2_path(@candidate) do |f| %>
+
+          <% if @candidate.errors.any? %>
+          <div id="error_explanation">
+          <strong><%= "Hay #{pluralize(@candidate.errors.count, t(:error), t(:errors))} con tu sumisión" %></strong>
+          <ul>
+          <% @candidate.errors.messages.each do |msg| %>
+            <li><%= msg.flatten.last %></li>
+          <% end %>
+          </ul>
+          </div>
+          <% end %>
+
+
+          <!--<%= f.label :name, class: "interviewee-name" %>
+          <%= f.text_field :name, class: "interviewee-name" %>
+          &nbsp;&nbsp;&nbsp;
+          <%= f.label :surname, class: "interviewee-surname" %>
+          <%= f.text_field :surname, class: "interviewee-surname" %><br /><br />-->
+          <%= f. fields_for :profile do |builder| %>
+            <%= render 'profile_fields', f: builder %>
+          <% end %>
+          <%= f.check_box :privacy_consent, id: "privacy-consent" %>
+          <%= f.label :privacy_consent, ("Consiento a la #{link_to 'política de privacidad', '#'}.").html_safe, id: "privacy_consent_label" %>
+          <br /><br />
+          <%= f.submit "Iniciar", class: "button" %>
+        <% end %>
+      </div>
+  </div> <!--Start interview content -->
+</div> <!-- Main Content -->
